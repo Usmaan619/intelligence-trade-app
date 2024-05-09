@@ -1,144 +1,4 @@
-// import { View, Text, StyleSheet, Image } from "react-native";
-// import React, { useState } from "react";
-// import Carousel, { Pagination } from "react-native-x-carousel";
-// import { homeStyle } from "../styles/homeStyle";
-// import { createShimmerPlaceholder } from "react-native-shimmer-placeholder";
-// import moment from "moment";
-// import { BlurView } from "expo-blur";
-// import { LinearGradient } from "expo-linear-gradient";
-// import { ICONS, constant } from "../constants/Contant";
-// import { GradientHOC } from "../HOC/Gradient.hoc";
-// import Header from "../components/CommonHeader.component";
-// import StocksListComponent from "../components/StocksList.component";
 
-// const ShimmerPlaceholder = createShimmerPlaceholder(LinearGradient);
-
-// const HomePage = () => {
-//   const [isShowShimmerLoader, setIsShowShimmerLoader] = useState(true);
-
-//   const handleSearch = () => {};
-
-//   const DATA = [
-//     {
-//       name: "Days on the market",
-//       cornerLabelText: "1",
-//       upValue: "23.0%",
-//       downValue: "0.89%",
-//       count: 1839,
-//       downImg: ICONS.downArrowImgImg,
-//       upImg: ICONS.upArrowImg,
-//     },
-
-//     {
-//       name: "Members",
-//       cornerLabelText: "2",
-//       upValue: "23.0%",
-//       downValue: "0.89%",
-//       count: 5812,
-//       downImg: ICONS.downArrowImgImg,
-//       upImg: ICONS.upArrowImg,
-//     },
-
-//     {
-//       name: "Arbitrage pools",
-//       cornerLabelText: "3",
-//       upValue: "23.0%",
-//       downValue: "0.89%",
-//       count: "$374 103",
-//       downImg: ICONS.downArrowImgImg,
-//       upImg: ICONS.upArrowImg,
-//     },
-
-//     {
-//       name: "Total paid",
-//       cornerLabelText: "9",
-//       upValue: "23.0%",
-//       downValue: "0.89%",
-//       count: "$100 812",
-//       downImg: ICONS.downArrowImgImg,
-//       upImg: ICONS.upArrowImg,
-//     },
-//   ];
-
-//   const renderCarousel = (data) => (
-//     <View
-//       key={data.cornerLabelText}
-//       style={{ padding: 6, marginHorizontal: 10 }}
-//     >
-//       <BlurView intensity={90} style={styles.subTitle}>
-//         <View
-//           style={{
-//             flexDirection: "row",
-//             justifyContent: "space-between",
-//             width: "100%",
-//             alignItems: "baseline",
-//           }}
-//         >
-//           <View style={{ flexDirection: "row" }}>
-//             <Image source={data?.upImg} style={{ height: 20, width: 20 }} />
-//             <Text style={{ color: "green" }}>{data?.upValue}</Text>
-//           </View>
-//           <View style={{ flexDirection: "row" }}>
-//             <Image source={data?.downImg} style={{ height: 20, width: 20 }} />
-//             <Text style={{ color: "red" }}>{data?.downValue}</Text>
-//           </View>
-//         </View>
-//         <View
-//           style={{
-//             justifyContent: "center",
-//             alignItems: "center",
-//             position: "absolute",
-//             top: 0,
-//             bottom: 0,
-//             left: 0,
-//             right: 0,
-//           }}
-//         >
-//           <Text style={{ fontSize: 22, fontWeight: "500" }}>{data?.count}</Text>
-//           <Text style={{ fontSize: 16, color: "grey" }}>{data?.name}</Text>
-//         </View>
-//       </BlurView>
-//     </View>
-//   );
-
-//   return (
-//     <View style={{ flex: 1 }}>
-//       <Header onSearch={handleSearch} />
-
-//       <View style={{ marginTop: "4%", paddingHorizontal: 20 }}>
-//         <Text style={{ color: "#000", fontSize: 14, fontWeight: "500" }}>
-//           Market Indices
-//         </Text>
-//         <View style={{ alignSelf: "center", overflow: "hidden" }}>
-//           <Carousel
-//             loop={true}
-//             autoplay={true}
-//             autoplayInterval={2000}
-//             pagination={Pagination}
-//             renderItem={renderCarousel}
-//             data={DATA}
-//             style={{ overflow: "hidden" }}
-//           />
-//         </View>
-//         <Text
-//           style={{
-//             color: "#000",
-//             fontSize: 15,
-//             fontWeight: "500",
-//             marginVertical: "10%",
-//           }}
-//         >
-//           Arbitration deals
-//         </Text>
-//         {/* <StocksListComponent /> */}
-//       </View>
-//     </View>
-//   );
-// };
-
-// const styles = StyleSheet.create(homeStyle);
-
-// export default GradientHOC(HomePage);
 
 import React, { useState } from "react";
 import {
@@ -149,23 +9,32 @@ import {
   ScrollView,
   StyleSheet,
   Dimensions,
-  Pressable,
+  Button,
 } from "react-native";
 import Header from "../components/CommonHeader.component";
 import { BlurView } from "expo-blur";
 import { LinearGradient } from "expo-linear-gradient";
 import { createShimmerPlaceholder } from "react-native-shimmer-placeholder";
 import Carousel, { PaginationLight } from "react-native-x-carousel";
-import { ICONS } from "../constants/Contant";
+import { ARBITRATION_LIST, ICONS } from "../constants/Contant";
 import { stocksStyle } from "../styles/stocksStyle";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-
+import { DataTable } from 'react-native-paper';
+import { FontAwesome } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+import Modal from "react-native-modal";
 const ShimmerPlaceholder = createShimmerPlaceholder(LinearGradient);
 
 const HomePage = ({ navigation }) => {
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+
   const DATA = [
     {
       name: "Days on the market",
@@ -176,7 +45,7 @@ const HomePage = ({ navigation }) => {
       // downImg: ICONS.downArrowImgImg,
       upImg: ICONS.upArrowImg,
     },
-    
+
 
     {
       name: "Members",
@@ -213,6 +82,10 @@ const HomePage = ({ navigation }) => {
     {
       bannerImg: ICONS.bannerImg,
       idx: 1,
+    },
+    {
+      bannerImg: ICONS.bannerImg,
+      idx: 2,
     },
   ];
 
@@ -314,9 +187,9 @@ const HomePage = ({ navigation }) => {
 
       <View style={{ alignSelf: "center", overflow: "hidden" }}>
         <Carousel
-          loop
+          loop={true}
           pagination={PaginationLight}
-          // autoplayInterval={2700}
+          autoplayInterval={2000}
           renderItem={renderItem}
           data={ADDS}
           style={{ overflow: "hidden" }}
@@ -325,9 +198,9 @@ const HomePage = ({ navigation }) => {
       </View>
 
       <ScrollView horizontal={true}>
-        {DATA.map((data, i) => (
+        {DATA.map((data, idx) => (
           <TouchableOpacity
-            key={data?.i}
+            key={idx}
             style={{
               overflow: "hidden",
               marginLeft: 10,
@@ -540,6 +413,7 @@ const HomePage = ({ navigation }) => {
             </View>
             {/* hathway */}
             <View
+
               style={{
                 flexDirection: "row",
                 padding: 10,
@@ -564,7 +438,7 @@ const HomePage = ({ navigation }) => {
                 </Text>
               </View>
 
-              <View>
+              <View >
                 <Text style={{ fontSize: 12, fontWeight: "700" }}>$27.04 </Text>
                 <Text
                   style={{ fontSize: 10, color: "#38B000", textAlign: "right" }}
@@ -575,7 +449,98 @@ const HomePage = ({ navigation }) => {
             </View>
           </View>
         </View>
+
+        {/* table */}
+        <View className='px-3'>
+          <View className='flex-row items-center gap-2 justify-center'>
+            <AntDesign name="doubleleft" size={20} color="blue" />
+
+            <Text className='text-lg  text-black font-bold  py-5'>
+              Arbitration deals
+            </Text>
+            <AntDesign name="doubleright" size={20} color="blue" />
+
+
+          </View>
+          <DataTable className='rounded bg-slate-100'>
+            <DataTable.Header className='text-white'>
+              <DataTable.Title >
+                <Text className='text-black font-bold text-center'>
+                  Pair
+                </Text>
+              </DataTable.Title>
+              <DataTable.Title >
+                <Text className='text-black font-bold text-center'>
+                  Buying Price
+                </Text>
+
+              </DataTable.Title>
+              <DataTable.Title >
+                <Text className='text-black font-bold text-center'>
+                  Selling Price
+                </Text>
+              </DataTable.Title>
+            </DataTable.Header>
+
+            {ARBITRATION_LIST?.map((d, idx) => (
+              <DataTable.Row style={{ width: '100%' }} onPress={toggleModal}>
+                <DataTable.Cell key={idx}>
+                  <View className='flex-row items-center  gap-1 me-10 w-full'>
+
+                    <FontAwesome name="bitcoin" size={15} color="#e5f13e" />
+                    <Text className='text-black font-bold text-center '>
+                      {d?.name}
+                    </Text>
+                  </View>
+                </DataTable.Cell>
+                <DataTable.Cell>
+
+                  <View className='flex-row  items-center justify-center gap-1 w-full text-center'>
+
+                    <FontAwesome name="dollar" size={15} color="green" />
+
+                    <Text className='text-black font-bold text-left '>
+                      {d?.buyingPrice}
+                    </Text>
+                  </View>
+
+                </DataTable.Cell>
+                <DataTable.Cell>
+                  <View className='flex-row items-center justify-center  gap-1'>
+                    <FontAwesome name="dollar" size={15} color="red" />
+                    <Text className='text-black font-bold text-center '>
+                      {d?.sellingPrice}
+                    </Text>
+                  </View>
+                </DataTable.Cell>
+              </DataTable.Row>
+            ))}
+
+
+
+          </DataTable>
+        </View>
+
+        {/* table end */}
+
+
+
       </View>
+      {/* share list end */}
+      {/* Modal start */}
+
+      <View style={{ flex: 1 }}>
+        <Modal className='bg-white rounded-xl' isVisible={isModalVisible} animationIn='bounce'>
+          <View style={{ flex: 1 }}>
+            <Button title="Hide modal" onPress={toggleModal} />
+          </View>
+        </Modal>
+      </View>
+
+      {/* Modal end */}
+
+
+
     </ScrollView>
   );
 };

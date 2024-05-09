@@ -181,3 +181,39 @@ export const STOCKS_LIST = [
     conversion: 237.67,
   },
 ];
+
+
+export const ARBITRATION_LIST = [
+  {
+    name: "BNB/USDT",
+    buyingPrice: 251.12,
+    sellingPrice: 251.12,
+  },
+  {
+    name: "SOL/USDT",
+    buyingPrice: 138.58,
+    sellingPrice: 138.58,
+  },
+  {
+    name: "ALGO/USDT",
+    buyingPrice: 129.79,
+    sellingPrice: 129.79,
+  },
+  {
+    name: "BNB/USDT",
+    buyingPrice: 160.22,
+    sellingPrice: 160.908,
+  },
+  {
+    name: "MATIC/USDT",
+    buyingPrice: 327.73,
+    sellingPrice: 327.73,
+  },
+  {
+    name: "SOL/USDT",
+    buyingPrice: 355.68,
+    sellingPrice: 355.68,
+  },
+
+
+];
