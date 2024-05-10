@@ -9,14 +9,13 @@ import {
   ScrollView,
   StyleSheet,
   Dimensions,
-  Button,
 } from "react-native";
 import Header from "../components/CommonHeader.component";
 import { BlurView } from "expo-blur";
 import { LinearGradient } from "expo-linear-gradient";
 import { createShimmerPlaceholder } from "react-native-shimmer-placeholder";
 import Carousel, { PaginationLight } from "react-native-x-carousel";
-import { ARBITRATION_LIST, ICONS } from "../constants/Contant";
+import { ARBITRATION_LIST, ICONS, LINE_CHART_CONFIG, LINE_CHART_DATA, LIVE_MARKET_LIST } from "../constants/Contant";
 import { stocksStyle } from "../styles/stocksStyle";
 import {
   widthPercentageToDP as wp,
@@ -26,8 +25,9 @@ import { DataTable } from 'react-native-paper';
 import { FontAwesome } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import Modal from "react-native-modal";
+import { LineChart } from "react-native-chart-kit";
 const ShimmerPlaceholder = createShimmerPlaceholder(LinearGradient);
-
+const screenWidth = Dimensions.get("window").width;
 const HomePage = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
 
@@ -125,46 +125,6 @@ const HomePage = ({ navigation }) => {
     }
   };
 
-  // const renderItem = (data) => (
-  //   <View
-  //     key={data?.cornerLabelText}
-  //     style={{ padding: 6, marginHorizontal: 10 }}
-  //   >
-  //     <BlurView intensity={90} style={styles.subTitle}>
-  //       <View
-  //         style={{
-  //           flexDirection: "row",
-  //           justifyContent: "space-between",
-  //           width: "100%",
-  //           alignItems: "baseline",
-  //         }}
-  //       >
-  //         <View style={{ flexDirection: "row" }}>
-  //           <Image source={data?.upImg} style={{ height: 20, width: 20 }} />
-  //           <Text style={{ color: "green" }}>{data?.upValue}</Text>
-  //         </View>
-  //         <View style={{ flexDirection: "row" }}>
-  //           <Image source={data?.downImg} style={{ height: 20, width: 20 }} />
-  //           <Text style={{ color: "red" }}>{data?.downValue}</Text>
-  //         </View>
-  //       </View>
-  //       <View
-  //         style={{
-  //           justifyContent: "center",
-  //           alignItems: "center",
-  //           position: "absolute",
-  //           top: 0,
-  //           bottom: 0,
-  //           left: 0,
-  //           right: 0,
-  //         }}
-  //       >
-  //         <Text style={{ fontSize: 22, fontWeight: "500" }}>{data?.count}</Text>
-  //         <Text style={{ fontSize: 16, color: "grey" }}>{data?.name}</Text>
-  //       </View>
-  //     </BlurView>
-  //   </View>
-  // );
 
   const renderItem = (data) => (
     <BlurView key={data?.idx} intensity={90} style={styles.subTitle}>
@@ -183,16 +143,16 @@ const HomePage = ({ navigation }) => {
   return (
     <ScrollView>
       <Header onSearch={handleSearch} />
-      {/* <Text style={styles.mainTitle}>Welcome, Jorge.</Text> */}
-
-      <View style={{ alignSelf: "center", overflow: "hidden" }}>
+      <View
+        className='flex-row justify-center'
+      >
         <Carousel
           loop={true}
           pagination={PaginationLight}
           autoplayInterval={2000}
+          autoplay={true}
           renderItem={renderItem}
           data={ADDS}
-          style={{ overflow: "hidden" }}
           onPage={onCarouselPageChange}
         />
       </View>
@@ -483,8 +443,8 @@ const HomePage = ({ navigation }) => {
             </DataTable.Header>
 
             {ARBITRATION_LIST?.map((d, idx) => (
-              <DataTable.Row style={{ width: '100%' }} onPress={toggleModal}>
-                <DataTable.Cell key={idx}>
+              <DataTable.Row key={idx} style={{ width: '100%' }} onPress={toggleModal}>
+                <DataTable.Cell >
                   <View className='flex-row items-center  gap-1 me-10 w-full'>
 
                     <FontAwesome name="bitcoin" size={15} color="#e5f13e" />
@@ -530,10 +490,44 @@ const HomePage = ({ navigation }) => {
       {/* Modal start */}
 
       <View style={{ flex: 1 }}>
-        <Modal className='bg-white rounded-xl' isVisible={isModalVisible} animationIn='bounce'>
-          <View style={{ flex: 1 }}>
-            <Button title="Hide modal" onPress={toggleModal} />
-          </View>
+        <Modal className='bg-white rounded-xl' isVisible={isModalVisible} animationIn='jello'
+          onBackdropPress={toggleModal}
+        >
+          <ScrollView style={{ flex: 1 }} >
+            <View className='px-4 pt-3'>
+
+
+              <Text className='text-sm font-bold p-1'>Live Market Snapshot</Text>
+              {LIVE_MARKET_LIST?.map((d, idx) => (
+
+                <View className='py-3' key={idx}>
+                  <View className='flex-row justify-between'>
+                    <Text className='text-xs text-grey'>{d?.todayOpen}</Text>
+                    <Text className='text-xs text-grey'>{d?.todayClose}</Text>
+                  </View>
+
+                  <View className='flex-row justify-between py-2'>
+                    <Text className='text-sm text-grey'>{d?.lowPrice}</Text>
+                    <Text className='text-sm text-grey'>{d?.highPrice}</Text>
+                  </View>
+                </View>
+              ))}
+            </View>
+
+            <View className=''>
+
+              <Text className='text-sm font-bold py-4 px-4' >Share PerFormance</Text>
+              <LineChart
+                data={LINE_CHART_DATA}
+                height={220}
+                width={Dimensions.get('window').width - 19}
+                chartConfig={LINE_CHART_CONFIG}
+                bezier
+                segments={5}
+              />
+            </View>
+
+          </ScrollView>
         </Modal>
       </View>
 

@@ -217,3 +217,58 @@ export const ARBITRATION_LIST = [
 
 
 ];
+
+
+export const LIVE_MARKET_LIST = [
+  {
+    todayOpen: "Today's low",
+    todayClose: "Today's high",
+    lowPrice: 22.5,
+    highPrice: 22.75,
+  },
+
+  {
+    todayOpen: "52 weeks low",
+    todayClose: "52 weeks high",
+    lowPrice: 15.50,
+    highPrice: 32.85,
+  },
+
+  {
+    todayOpen: "Open",
+    todayClose: "Prev.close",
+    lowPrice: 22.53,
+    highPrice: 29.40,
+  },
+
+];
+
+export const LINE_CHART_DATA = {
+  labels: ["January", "February", "March", "April", "May", "June"],
+  datasets: [
+    {
+      data: [20, 45, 28, 80, 99, 43],
+      color: (opacity = 1) => `rgba(255,0,0, ${opacity})`, // optional
+      strokeWidth: 4 // optional
+    }
+  ],
+  legend: ["Rainy Days"] // optional
+};
+
+
+export const LINE_CHART_CONFIG = {
+  backgroundColor: '#1cc910',
+  backgroundGradientFrom: '#eff3ff',
+  backgroundGradientTo: '#efefef',
+  decimalPlaces: 2, // optional, defaults to 2dp
+  color: (opacity = 255) => `rgba(0, 0, 0, ${opacity})`,
+  style: {
+    borderRadius: 16,
+  },
+  propsForDots: {
+    r: "3",
+    strokeWidth: "4",
+    stroke: "red"
+  },
+}
+

@@ -31,13 +31,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [
-      [
-        "react-native-document-scanner-plugin",
-        {
-          "cameraPermission": "We need camera access, so you can scan documents"
-        }
-      ]
-    ]
+    "plugins": []
   }
 }

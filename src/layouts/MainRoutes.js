@@ -4,7 +4,6 @@ import WelcomePage from "../pages/WelcomePage";
 import signUpPage from "../auth/signUpPage";
 import SignInPage from "../auth/SignInPage";
 import HomePage from "../withoutlogin/HomePage";
-import DocumentVerifPage from "../auth/DocumentVerifPage";
 import StocksList from "../components/StocksList.component";
 
 const Stack = createNativeStackNavigator();
@@ -18,7 +17,7 @@ const MainRoutes = () => {
           animation: "slide_from_right",
         }}
       >
-        {/* <Stack.Screen name="documentVerif" component={DocumentVerifPage} /> */}
+
 
         {/* <Stack.Screen name="StocksList" component={StocksList} /> */}
 
