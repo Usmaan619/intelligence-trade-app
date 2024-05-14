@@ -15,7 +15,7 @@ import { BlurView } from "expo-blur";
 import { LinearGradient } from "expo-linear-gradient";
 import { createShimmerPlaceholder } from "react-native-shimmer-placeholder";
 import Carousel, { PaginationLight } from "react-native-x-carousel";
-import { ARBITRATION_LIST, ICONS, LINE_CHART_CONFIG, LINE_CHART_DATA, LIVE_MARKET_LIST } from "../constants/Contant";
+import { ARBITRATION_LIST, ICONS, LINE_CHART_CONFIG, LINE_CHART_CONFIG_GREEN, LINE_CHART_DATA, LINE_CHART_DATA_GREEN, LINE_CHART_DATA_RED, LIVE_MARKET_LIST } from "../constants/Contant";
 import { stocksStyle } from "../styles/stocksStyle";
 import {
   widthPercentageToDP as wp,
@@ -30,6 +30,10 @@ const ShimmerPlaceholder = createShimmerPlaceholder(LinearGradient);
 const screenWidth = Dimensions.get("window").width;
 const HomePage = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
+  const [isShowShimmerLoader, setIsShowShimmerLoader] = useState(false);
+  const [isDisableBuyAnSellBtn, setIsDisableBuyAnSellBtn] = useState(false);
+  const [isCarouselPage, setIsCarouselPage] = useState("");
+  const [isVisibleChart, setVisibleChart] = useState('green');
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -89,11 +93,7 @@ const HomePage = ({ navigation }) => {
     },
   ];
 
-  const [isShowShimmerLoader, setIsShowShimmerLoader] = useState(false);
 
-  const [isDisableBuyAnSellBtn, setIsDisableBuyAnSellBtn] = useState(false);
-
-  const [isCarouselPage, setIsCarouselPage] = useState("");
 
   setTimeout(() => {
     setIsShowShimmerLoader(true);
@@ -479,14 +479,11 @@ const HomePage = ({ navigation }) => {
 
 
           </DataTable>
+          {/* table end */}
         </View>
-
-        {/* table end */}
-
-
-
       </View>
       {/* share list end */}
+
       {/* Modal start */}
 
       <View style={{ flex: 1 }}>
@@ -514,19 +511,37 @@ const HomePage = ({ navigation }) => {
               ))}
             </View>
 
-            <View className=''>
-
+            <React.Fragment>
               <Text className='text-sm font-bold py-4 px-4' >Share PerFormance</Text>
-              <LineChart
-                data={LINE_CHART_DATA}
-                height={220}
-                width={Dimensions.get('window').width - 19}
-                chartConfig={LINE_CHART_CONFIG}
-                bezier
-                segments={5}
-              />
-            </View>
+              {isVisibleChart === 'red' &&
+                <LineChart
+                  data={LINE_CHART_DATA_RED}
+                  height={220}
+                  width={Dimensions.get('window').width - 19}
+                  chartConfig={LINE_CHART_CONFIG}
+                  bezier
+                  segments={5}
+                  withVerticalLines={false}
+                  withHorizontalLines={false}
+                  withVerticalLabels={false}
+                  withHorizontalLabels={false}
 
+                />
+              }
+              {isVisibleChart === 'green' &&
+                <LineChart
+                  data={LINE_CHART_DATA_GREEN}
+                  height={220}
+                  width={Dimensions.get('window').width - 19}
+                  chartConfig={LINE_CHART_CONFIG_GREEN}
+                  bezier
+                  segments={5}
+                  withVerticalLines={false}
+                  withHorizontalLines={false}
+                  withHorizontalLabels={false}
+                />
+              }
+            </React.Fragment>
           </ScrollView>
         </Modal>
       </View>

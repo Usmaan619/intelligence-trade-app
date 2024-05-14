@@ -243,25 +243,39 @@ export const LIVE_MARKET_LIST = [
 
 ];
 
-export const LINE_CHART_DATA = {
-  labels: ["January", "February", "March", "April", "May", "June"],
+export const LINE_CHART_DATA_RED = {
+  // labels: ["January", "February", "March", "April", "May", "June"],
   datasets: [
     {
-      data: [20, 45, 28, 80, 99, 43],
+      data: [20, 35, 28, 43, 33],
+      // line color
       color: (opacity = 1) => `rgba(255,0,0, ${opacity})`, // optional
       strokeWidth: 4 // optional
     }
   ],
-  legend: ["Rainy Days"] // optional
+  legend: ["Days"] // optional
 };
 
+
+export const LINE_CHART_DATA_GREEN = {
+  // labels: ["January", "February", "March", "April", "May", "June"],
+  datasets: [
+    {
+      data: [20, 45, 50, 99],
+      // line color
+      color: (opacity = 1) => `rgba(0,198,66, ${opacity})`, // optional
+      strokeWidth: 4 // optional
+    }
+  ],
+  legend: ["Days"] // optionali
+};
 
 export const LINE_CHART_CONFIG = {
   backgroundColor: '#1cc910',
   backgroundGradientFrom: '#eff3ff',
   backgroundGradientTo: '#efefef',
   decimalPlaces: 2, // optional, defaults to 2dp
-  color: (opacity = 255) => `rgba(0, 0, 0, ${opacity})`,
+  color: (opacity = 255) => `rgba(250, 0, 0, ${opacity})`,
   style: {
     borderRadius: 16,
   },
@@ -269,6 +283,23 @@ export const LINE_CHART_CONFIG = {
     r: "3",
     strokeWidth: "4",
     stroke: "red"
+  },
+}
+
+export const LINE_CHART_CONFIG_GREEN = {
+  backgroundColor: '#1cc910',
+  backgroundGradientFrom: '#eff3ff',
+  backgroundGradientTo: '#efefef',
+  decimalPlaces: 2, // optional, defaults to 2dp
+  color: (opacity = 255) => `rgba(0,198, 66, ${opacity})`,
+  style: {
+    borderRadius: 16,
+  },
+  propsForDots: {
+    r: "3",
+    strokeWidth: "4",
+    stroke: "rgba(0,198,66,1)"
+
   },
 }
 
