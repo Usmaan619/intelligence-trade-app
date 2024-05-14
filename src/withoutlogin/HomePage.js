@@ -15,7 +15,7 @@ import { BlurView } from "expo-blur";
 import { LinearGradient } from "expo-linear-gradient";
 import { createShimmerPlaceholder } from "react-native-shimmer-placeholder";
 import Carousel, { PaginationLight } from "react-native-x-carousel";
-import { ARBITRATION_LIST, ICONS, LINE_CHART_CONFIG, LINE_CHART_CONFIG_GREEN, LINE_CHART_DATA, LINE_CHART_DATA_GREEN, LINE_CHART_DATA_RED, LIVE_MARKET_LIST } from "../constants/Contant";
+import { ARBITRATION_LIST, ICONS, LINE_CHART_CONFIG, LINE_CHART_CONFIG_GREEN, LINE_CHART_DATA, LINE_CHART_DATA_GREEN, LINE_CHART_DATA_RED, LIVE_MARKET_LIST, OUR_FEATURES } from "../constants/Contant";
 import { stocksStyle } from "../styles/stocksStyle";
 import {
   widthPercentageToDP as wp,
@@ -26,6 +26,9 @@ import { FontAwesome } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import Modal from "react-native-modal";
 import { LineChart } from "react-native-chart-kit";
+import { MaterialIcons } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
+
 const ShimmerPlaceholder = createShimmerPlaceholder(LinearGradient);
 const screenWidth = Dimensions.get("window").width;
 const HomePage = ({ navigation }) => {
@@ -548,6 +551,26 @@ const HomePage = ({ navigation }) => {
 
       {/* Modal end */}
 
+
+      <View className='px-3 pb-6 bg-white'>
+        <View className='flex-row items-center gap-2 justify-center'>
+          <AntDesign name="doubleleft" size={20} color="blue" />
+
+          <Text className='text-lg  text-black font-bold  py-5'>
+            Our features
+          </Text>
+          <AntDesign name="doubleright" size={20} color="blue" />
+        </View>
+        {OUR_FEATURES?.map((d, idx) =>
+          <View key={idx} className='h-36 bg-slate-100 rounded-xl p-3 border-2 border-indigo-500 mb-5'>
+            <View className='h-9 w-9  border-2 border-indigo-500 flex-row justify-center items-center rounded-3xl'>
+              <MaterialIcons name={d?.icon} size={24} color="blue" />
+            </View>
+            <Text className='text-center font-bold text-lg'>{d?.name}</Text>
+            <Text className='text-center  text-md'>{d?.Description}</Text>
+          </View>
+        )}
+      </View>
 
 
     </ScrollView>

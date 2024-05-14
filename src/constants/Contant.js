@@ -303,3 +303,26 @@ export const LINE_CHART_CONFIG_GREEN = {
   },
 }
 
+
+export const OUR_FEATURES = [
+  {
+    name: "Safety",
+    Description: 'We do not have access to your personal data and cannot withdraw funds',
+    icon: 'security'
+  },
+
+  {
+    name: "Automatization",
+    Description: 'Automatic arbitrage calculations and deal closing',
+    icon: 'auto-awesome-mosaic'
+  },
+
+
+  {
+    name: "Analytics",
+    Description: 'The robot shows you how your trades are performing in real time',
+    icon: 'auto-graph'
+  },
+];
+
+
