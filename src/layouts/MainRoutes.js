@@ -5,6 +5,7 @@ import signUpPage from "../auth/signUpPage";
 import SignInPage from "../auth/SignInPage";
 import HomePage from "../withoutlogin/HomePage";
 import StocksList from "../components/StocksList.component";
+import DocumentVerifPage from "../auth/DocumentVerifPage";
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ const MainRoutes = () => {
 
 
         {/* <Stack.Screen name="StocksList" component={StocksList} /> */}
+        <Stack.Screen name="documentVerif" component={DocumentVerifPage} />
 
         <Stack.Screen name="home" component={HomePage} />
         <Stack.Screen name="signUp" component={signUpPage} />

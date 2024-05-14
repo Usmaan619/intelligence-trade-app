@@ -19,6 +19,7 @@ import { GradientHOC } from "../HOC/Gradient.hoc";
 import { signUpValidationSchema } from "./authService";
 import CommonButton from "../components/CommonButton";
 
+
 const SignUp = ({ navigation }) => {
   const [isShowPassword, setIsShowPassword] = useState(true);
   const [isShowPasswordConf, setIsShowPasswordConf] = useState(true);
@@ -35,6 +36,8 @@ const SignUp = ({ navigation }) => {
     console.log("val: ", val);
     navigation.navigate("home");
   };
+
+
 
   return (
     <ScrollView>
@@ -157,7 +160,7 @@ const SignUp = ({ navigation }) => {
                   onPress={() => {
                     handleSubmit();
                   }}
-                  title={"sign up"}
+                  title={"Next"}
                 />
               </View>
               <Text

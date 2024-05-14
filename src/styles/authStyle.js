@@ -125,7 +125,7 @@ export const authStyles = {
     padding: 10,
     height: 56,
     overflow: "hidden",
-    elevation: 0.5,
+    // elevation: 0.5,
     position: "relative",
   },
 
