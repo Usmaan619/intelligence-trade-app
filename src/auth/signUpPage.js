@@ -34,7 +34,7 @@ const SignUp = ({ navigation }) => {
 
   const onSubmit = (val) => {
     console.log("val: ", val);
-    navigation.navigate("home");
+    navigation.navigate("DocumentVerif");
   };
 
 

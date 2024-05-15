@@ -45,14 +45,17 @@ const DocumentVerifPage = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <View className='flex-row justify-center items-center mt-8'>
+      <View className='flex-row justify-center items-center mt-12'>
         <Image source={ICONS?.intelligenceMainWhiteImg} resizeMode="cover" className='h-[90px] w-[170px] overflow-hidden' />
       </View>
-      <Text className="text-center  text-lg font-semibold text-white mt-5">Document Verification</Text>
-      <View className='p-5'>
+
+      <Text className="text-center  text-lg font-semibold text-white ">Document Verification</Text>
+      <Text className="text-center  text-sm font-semibold text-gray-300 px-3">Kindly provide copies of your Aadhaar and PAN cards for authentication.</Text>
+
+      <View className='px-5 py-2'>
         <View>
 
-          <View className='flex-row items-center gap-2 my-2'>
+          <View className='flex-row items-center gap-2 my-1'>
             <Entypo name="text-document" size={24} color="white" />
             <Text className='text-md text-white'>Upload document front page</Text>
           </View>

@@ -51,7 +51,8 @@ export const signUpValidationSchema = yup.object().shape({
   //   .required('Full name is required'),
   phoneNumber: yup
     .string()
-    .matches(/(01)(\d){8}\b/, "Enter a valid phone number")
+    .matches(/^(?:(?:\+|0{0,2})91(?:(?:\s*[\-]\s*)?(?:\d{3})(?:\s*[\-]\s*)?(?:\d{3})(?:\s*[\-]\s*)?(?:\d{4}))|(?:(?:\d{2})(?:\s*[\-]\s*)?(?:\d{4})(?:\s*[\-]\s*)?(?:\d{4})))$/
+      , "Enter a valid phone number")
     .required("Phone number is required"),
   email: yup
     .string()
