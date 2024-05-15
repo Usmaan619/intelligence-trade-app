@@ -57,69 +57,73 @@ const SignIn = ({ navigation }) => {
           formikFn = formikProps;
           return (
             <View style={styles.signUpcontainer}>
-              <View style={styles.signUpInputMainContainer}>
-                <SafeAreaView style={styles.signUpInputSubContainer}>
-                  <Text style={styles.inputLabel}>Email</Text>
-                  <BlurView intensity={100} style={styles.input}>
-                    <TextInput
-                      placeholder="you@example.com"
-                      style={{ padding: 10 }}
-                      onChangeText={handleChange("email")}
-                      onBlur={handleBlur("email")}
-                      value={values.email}
-                    />
-                  </BlurView>
 
-                  {errors.email && touched.email && (
-                    <Text style={{ fontSize: 10, color: "red" }}>
-                      {errors.email}
-                    </Text>
-                  )}
-
-                  <Text style={styles.signUpinputLabel2}>Password</Text>
-                  <BlurView intensity={100} style={styles.input}>
-                    <TextInput
-                      style={{ padding: 10 }}
-                      secureTextEntry={isShowPassword}
-                      placeholder="******"
-                      onChangeText={handleChange("password")}
-                      onBlur={handleBlur("password")}
-                      value={values.password}
-                    />
-                    <TouchableOpacity onPress={togglePassword}>
-                      <Image
-                        style={styles.passwordEye}
-                        source={
-                          isShowPassword ? ICONS.crossEyeImg : ICONS.eyeImg
-                        }
-                        fadeDuration={0}
+              <View className='flex justify-center mt-10'>
+                <Text className="text-center my-5 text-lg font-semibold">Sign In</Text>
+                <View style={styles.signUpInputMainContainer}>
+                  <SafeAreaView style={styles.signUpInputSubContainer}>
+                    <Text style={styles.inputLabel}>Email</Text>
+                    <BlurView intensity={100} style={styles.input}>
+                      <TextInput
+                        placeholder="you@example.com"
+                        style={{ padding: 10 }}
+                        onChangeText={handleChange("email")}
+                        onBlur={handleBlur("email")}
+                        value={values.email}
                       />
-                    </TouchableOpacity>
-                  </BlurView>
-                  {errors.password && touched.password && (
-                    <Text style={{ fontSize: 10, color: "red" }}>
-                      {errors.password}
-                    </Text>
-                  )}
-                </SafeAreaView>
-              </View>
+                    </BlurView>
 
-              <View style={{ marginTop: "10%" }}>
-                <CommonButton
+                    {errors.email && touched.email && (
+                      <Text style={{ fontSize: 10, color: "red" }}>
+                        {errors.email}
+                      </Text>
+                    )}
+
+                    <Text style={styles.signUpinputLabel2}>Password</Text>
+                    <BlurView intensity={100} style={styles.input}>
+                      <TextInput
+                        style={{ padding: 10 }}
+                        secureTextEntry={isShowPassword}
+                        placeholder="******"
+                        onChangeText={handleChange("password")}
+                        onBlur={handleBlur("password")}
+                        value={values.password}
+                      />
+                      <TouchableOpacity onPress={togglePassword}>
+                        <Image
+                          style={styles.passwordEye}
+                          source={
+                            isShowPassword ? ICONS.crossEyeImg : ICONS.eyeImg
+                          }
+                          fadeDuration={0}
+                        />
+                      </TouchableOpacity>
+                    </BlurView>
+                    {errors.password && touched.password && (
+                      <Text style={{ fontSize: 10, color: "red" }}>
+                        {errors.password}
+                      </Text>
+                    )}
+                  </SafeAreaView>
+                </View>
+
+                <View style={{ marginTop: "10%" }}>
+                  <CommonButton
+                    onPress={() => {
+                      handleSubmit();
+                    }}
+                    title={"sign up"}
+                  />
+                </View>
+                <Text
+                  style={styles.dontHaveAccount}
                   onPress={() => {
-                    handleSubmit();
+                    navigation.navigate("signUp");
                   }}
-                  title={"sign up"}
-                />
+                >
+                  don't have account?<B>sign up</B>
+                </Text>
               </View>
-              <Text
-                style={styles.dontHaveAccount}
-                onPress={() => {
-                  navigation.navigate("signUp");
-                }}
-              >
-                don't have account?<B>sign up</B>
-              </Text>
             </View>
           );
         }}

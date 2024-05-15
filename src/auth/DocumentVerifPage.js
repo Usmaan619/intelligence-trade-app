@@ -21,18 +21,18 @@ const DocumentVerifPage = () => {
         allowsEditing: true,
         aspect: [4, 3],
         quality: 1,
-        base64: true
+        // base64: true
       });
 
 
 
       if (type === 'front') {
-        const img = result?.assets[0]?.base64
+        const img = result?.assets[0]?.uri
         console.log('img: ', img);
         setFrontImage(img)
       }
 
-      if (type === 'back') setBackImage(result?.assets[0]?.base64)
+      if (type === 'back') setBackImage(result?.assets[0]?.uri)
       console.log('frontImage: ', frontImage);
 
     } catch (error) {
@@ -61,7 +61,7 @@ const DocumentVerifPage = () => {
               </View>
             </TouchableOpacity>}
           {frontImage &&
-            <Image source={{ uri: frontImage }} className='h-40 rounded flex-row justify-center items-center' />
+            <Image source={{ uri: frontImage }} className='h-40 rounded ' resizeMode='cover' />
           }
         </View>
 
@@ -82,7 +82,7 @@ const DocumentVerifPage = () => {
             </TouchableOpacity>
           }
           {backImage &&
-            <Image source={{ uri: backImage }} className='h-40 rounded flex-row justify-center items-center' />
+            <Image source={{ uri: backImage }} resizeMode='cover' className='h-40 rounded flex-row justify-center items-center' />
           }
 
 

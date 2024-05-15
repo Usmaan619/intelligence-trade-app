@@ -24,7 +24,7 @@
         "backgroundColor": "#ffffff"
       },
       "permissions": [
-        "CAMERA"
+        "android.permission.CAMERA"
       ],
       "package": "com.anonymous.intelligencetradeapp"
     },
@@ -41,6 +41,12 @@
           "microphonePermission": false
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "2561a3b4-cee3-490c-af49-5448f073f49e"
+      }
+    },
+    "owner": "usmanhasan"
   }
 }

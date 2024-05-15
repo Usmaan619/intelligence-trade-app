@@ -21,11 +21,11 @@ const MainRoutes = () => {
 
 
         {/* <Stack.Screen name="StocksList" component={StocksList} /> */}
+        <Stack.Screen name="signIn" component={SignInPage} />
+        <Stack.Screen name="signUp" component={signUpPage} />
         <Stack.Screen name="documentVerif" component={DocumentVerifPage} />
 
         <Stack.Screen name="home" component={HomePage} />
-        <Stack.Screen name="signUp" component={signUpPage} />
-        <Stack.Screen name="signIn" component={SignInPage} />
 
         <Stack.Screen name="WelcomePage" component={WelcomePage} />
       </Stack.Navigator>

@@ -47,7 +47,7 @@ const SignUp = ({ navigation }) => {
           email: "",
           password: "",
           Confpassword: "",
-          mobileNo: "",
+          phoneNumber: "",
         }}
         onSubmit={onSubmit}
       >
@@ -64,6 +64,9 @@ const SignUp = ({ navigation }) => {
           formikFn = formikProps;
           return (
             <View style={styles.signUpcontainer}>
+
+              <Text className="text-center my-5 text-lg font-semibold">Create New Account</Text>
+
               <View style={styles.signUpInputMainContainer}>
                 <SafeAreaView style={styles.signUpInputSubContainer}>
                   <Text style={styles.inputLabel}>Email</Text>
@@ -88,16 +91,16 @@ const SignUp = ({ navigation }) => {
                     <TextInput
                       placeholder="7*****1511"
                       style={{ padding: 10 }}
-                      onChangeText={handleChange("mobileNo")}
-                      onBlur={handleBlur("mobileNo")}
-                      value={values.mobileNo}
+                      onChangeText={handleChange("phoneNumber")}
+                      onBlur={handleBlur("phoneNumber")}
+                      value={values.phoneNumber}
                       keyboardType="phone-pad"
                     />
                   </BlurView>
 
-                  {errors.mobileNo && touched.mobileNo && (
+                  {errors.phoneNumber && touched.phoneNumber && (
                     <Text style={{ fontSize: 10, color: "red" }}>
-                      {errors.mobileNo}
+                      {errors.phoneNumber}
                     </Text>
                   )}
 
