@@ -67,7 +67,7 @@ const SignUp = ({ navigation }) => {
               <View className='flex-row justify-center items-center'>
                 <Image source={ICONS?.intelligenceMainWhiteImg} resizeMode="cover" className='h-[90px] w-[170px] overflow-hidden' />
               </View>
-              <Text className="text-center mb-2 mt-2 text-lg font-semibold text-white">Create New Account</Text>
+              <Text className="text-center  text-lg font-semibold text-white">Create New Account</Text>
 
               <View style={styles.signUpInputMainContainer}>
                 <SafeAreaView style={styles.signUpInputSubContainer}>

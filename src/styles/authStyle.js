@@ -62,13 +62,13 @@ export const authStyles = {
   },
   signUpInputMainContainer: {
     alignItems: "center",
-    marginTop: hp("2%"),
+    // marginTop: hp("1%"),
     paddingHorizontal: 15,
   },
 
   inputSubContainer: { marginTop: hp("2.2%"), width: 320 },
 
-  signUpInputSubContainer: { marginTop: hp("1.5%"), width: "100%" },
+  signUpInputSubContainer: { marginTop: hp("0.2%"), width: "100%" },
 
   inputLabel: {
     fontSize: hp("1.6%"), // size 14
