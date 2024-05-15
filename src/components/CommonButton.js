@@ -9,7 +9,7 @@ const CommonButton = ({ onPress, title }) => {
   return (
     <TouchableOpacity onPress={onPress} style={[styles.button]}>
       <LinearGradient
-        colors={["#572c7c", "#a034fa"]} // Gradient colors
+        colors={["#0575E6", "#021B79"]} // Gradient colors
         style={[styles.linearGradient]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }}

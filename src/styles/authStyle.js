@@ -73,7 +73,7 @@ export const authStyles = {
   inputLabel: {
     fontSize: hp("1.6%"), // size 14
     fontWeight: "600",
-    color: "#263238",
+    color: "#fff",
     marginBottom: hp("1.5%"),
   },
 
@@ -103,7 +103,7 @@ export const authStyles = {
   signUpinputLabel2: {
     fontSize: hp("1.6%"), // size 14
     fontWeight: "600",
-    color: "#263238",
+    color: "#fff",
     marginBottom: hp("1.5%"),
     marginTop: hp("1.9%"),
   },
@@ -125,8 +125,8 @@ export const authStyles = {
     padding: 10,
     height: 56,
     overflow: "hidden",
-    // elevation: 0.5,
     position: "relative",
+    backgroundColor:'#ffffff'
   },
 
   countryDropdown: {
@@ -240,10 +240,10 @@ export const authStyles = {
   },
 
   dontHaveAccount: {
-    fontSize: hp("1.5%"),
+    fontSize: hp("1.8%"),
     textAlign: "center",
     marginTop: "4%",
-    color: "#263238",
+    color: "#ffffff",
     padding: 5,
   },
 

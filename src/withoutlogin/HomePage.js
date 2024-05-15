@@ -27,6 +27,7 @@ import { AntDesign } from '@expo/vector-icons';
 import Modal from "react-native-modal";
 import { LineChart } from "react-native-chart-kit";
 import { MaterialIcons } from '@expo/vector-icons';
+import { GradientHOC } from "../HOC/Gradient.hoc";
 const ShimmerPlaceholder = createShimmerPlaceholder(LinearGradient);
 const screenWidth = Dimensions.get("window").width;
 const HomePage = ({ navigation }) => {
@@ -564,7 +565,7 @@ const HomePage = ({ navigation }) => {
             <View className='h-9 w-9  border-2 border-indigo-500 flex-row justify-center items-center rounded-3xl'>
               <MaterialIcons name={d?.icon} size={24} color="blue" />
             </View>
-            <Text className='text-center font-bold text-lg' onPress={pickImage}>{d?.name}</Text>
+            <Text className='text-center font-bold text-lg'>{d?.name}</Text>
             <Text className='text-center  text-md'>{d?.Description}</Text>
           </View>
         )}

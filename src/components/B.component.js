@@ -2,10 +2,8 @@ import { Text } from "react-native";
 
 const B = (props) => (
   <Text
-    style={{
-      fontWeight: "bold",
-      color: "#263238",
-    }}
+    className='font-bold text-yellow-50'
+
   >
     {props.children}
   </Text>

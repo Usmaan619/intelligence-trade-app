@@ -65,7 +65,7 @@ const SignUp = ({ navigation }) => {
           return (
             <View style={styles.signUpcontainer}>
 
-              <Text className="text-center my-5 text-lg font-semibold">Create New Account</Text>
+              <Text className="text-center my-5 text-lg font-semibold text-white">Create New Account</Text>
 
               <View style={styles.signUpInputMainContainer}>
                 <SafeAreaView style={styles.signUpInputSubContainer}>

@@ -9,9 +9,7 @@ import {
   TextInput,
   ScrollView,
 } from "react-native";
-
 import { BlurView } from "expo-blur";
-
 import { Formik } from "formik";
 import { ICONS } from "../constants/Contant";
 import B from "../components/B.component";
@@ -40,7 +38,6 @@ const SignIn = ({ navigation }) => {
           email: "",
           password: "",
           Confpassword: "",
-          mobileNo: "",
         }}
         onSubmit={onSubmit}
       >
@@ -59,7 +56,7 @@ const SignIn = ({ navigation }) => {
             <View style={styles.signUpcontainer}>
 
               <View className='flex justify-center mt-10'>
-                <Text className="text-center my-5 text-lg font-semibold">Sign In</Text>
+                <Text className="text-center my-5 text-lg font-semibold text-white">Sign In</Text>
                 <View style={styles.signUpInputMainContainer}>
                   <SafeAreaView style={styles.signUpInputSubContainer}>
                     <Text style={styles.inputLabel}>Email</Text>

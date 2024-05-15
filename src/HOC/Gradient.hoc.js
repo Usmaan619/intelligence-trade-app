@@ -13,7 +13,10 @@ export const GradientHOC = (Component) => {
     // ],
 
     // colors: ["#7ED6DF", "#000000"],
-    colors: ["#d3d3d3", "#fff"],
+    // colors: ['#001510',"#00bf8f", "#001510"],
+    colors: ["#0f0c29", "#302b63", "#24243e"]
+    // colors: ["#3AB196", "#3AB196"]
+
   };
   // "#16142a",
 

@@ -5,6 +5,7 @@ import { Entypo } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import CommonButton from '../components/CommonButton';
 import * as ImagePicker from 'expo-image-picker';
+import { GradientHOC } from '../HOC/Gradient.hoc';
 
 
 const DocumentVerifPage = () => {
@@ -43,13 +44,13 @@ const DocumentVerifPage = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <Text className='text-center text-xl font-bold mt-4'>Document Verification</Text>
+      <Text className='text-center text-xl font-bold mt-10 text-white'>Document Verification</Text>
       <View className='p-5'>
         <View>
 
           <View className='flex-row items-center gap-2 my-3'>
-            <Entypo name="text-document" size={24} color="black" />
-            <Text className='text-md'>Upload document front page</Text>
+            <Entypo name="text-document" size={24} color="white" />
+            <Text className='text-md text-white'>Upload document front page</Text>
           </View>
           {!frontImage &&
             <TouchableOpacity onPress={() => {
@@ -57,7 +58,7 @@ const DocumentVerifPage = () => {
             }} className='h-40 bg-white rounded flex-row justify-center items-center'>
               <View className='flex justify-center items-center'>
                 <Feather name="upload" size={30} color="black" />
-                <Text className='font-semibold text-md'>Upload</Text>
+                <Text className='font-semibold text-md text-black'>Upload</Text>
               </View>
             </TouchableOpacity>}
           {frontImage &&
@@ -68,8 +69,8 @@ const DocumentVerifPage = () => {
         <View>
 
           <View className='flex-row items-center gap-2 my-3'>
-            <Entypo name="text-document" size={24} color="black" />
-            <Text className='text-md'>Upload document back page</Text>
+            <Entypo name="text-document" size={24} color="white" />
+            <Text className='text-md text-white'>Upload document back page</Text>
           </View>
           {!backImage &&
             <TouchableOpacity onPress={() => {
@@ -77,7 +78,7 @@ const DocumentVerifPage = () => {
             }} className='h-40 bg-white rounded flex-row justify-center items-center'>
               <View className='flex justify-center items-center'>
                 <Feather name="upload" size={30} color="black" />
-                <Text className='font-semibold text-md'>Upload</Text>
+                <Text className='font-semibold text-md text-black'>Upload</Text>
               </View>
             </TouchableOpacity>
           }
@@ -103,4 +104,4 @@ const DocumentVerifPage = () => {
   )
 }
 
-export default DocumentVerifPage
+export default GradientHOC(DocumentVerifPage)
