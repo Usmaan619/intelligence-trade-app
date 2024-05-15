@@ -6,6 +6,7 @@ import { Feather } from '@expo/vector-icons';
 import CommonButton from '../components/CommonButton';
 import * as ImagePicker from 'expo-image-picker';
 import { GradientHOC } from '../HOC/Gradient.hoc';
+import { ICONS } from '../constants/Contant';
 
 
 const DocumentVerifPage = () => {
@@ -44,11 +45,14 @@ const DocumentVerifPage = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <Text className='text-center text-xl font-bold mt-10 text-white'>Document Verification</Text>
+      <View className='flex-row justify-center items-center mt-8'>
+        <Image source={ICONS?.intelligenceMainWhiteImg} resizeMode="cover" className='h-[90px] w-[170px] overflow-hidden' />
+      </View>
+      <Text className="text-center  text-lg font-semibold text-white mt-5">Document Verification</Text>
       <View className='p-5'>
         <View>
 
-          <View className='flex-row items-center gap-2 my-3'>
+          <View className='flex-row items-center gap-2 my-2'>
             <Entypo name="text-document" size={24} color="white" />
             <Text className='text-md text-white'>Upload document front page</Text>
           </View>

@@ -1,6 +1,9 @@
 export const ICONS = {
   eyeImg: require("../../assets/png/eye.png"),
 
+  intelligenceMainImg: require("../../assets/png/intelligenceMainLogo.png"),
+  intelligenceMainWhiteImg: require("../../assets/png/intelligencetrade-logo.png"),
+
   crossEyeImg: require("../../assets/png/crossEye.png"),
   upArrowImg: require("../../assets/png/up-arrow.png"),
   downArrowImgImg: require("../../assets/png/down-arrow.png"),
@@ -50,8 +53,7 @@ export const ICONS = {
   profileEdit: require("../../assets/png/profileEdit.png"),
   connectMetaMask: require("../../assets/png/metaMask.png"),
 
-  privacy1: require("../../assets/png/privacy12.png"),
-  privacy2: require("../../assets/png/privacy22.png"),
+
   bannerImg: require("../../assets/png/alphatest.png"),
 
   homeImg: require("../../assets/png/homeImg.png"),

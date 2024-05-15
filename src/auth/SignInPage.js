@@ -55,8 +55,11 @@ const SignIn = ({ navigation }) => {
           return (
             <View style={styles.signUpcontainer}>
 
-              <View className='flex justify-center mt-10'>
-                <Text className="text-center my-5 text-lg font-semibold text-white">Sign In</Text>
+              <View className='flex justify-center mt-2'>
+                <View className='flex-row justify-center items-center'>
+                  <Image source={ICONS?.intelligenceMainWhiteImg} resizeMode="cover" className='h-[90px] w-[170px] overflow-hidden' />
+                </View>
+                <Text className="text-center my-5 text-lg font-semibold text-white">Welcome Back, Please Sign In To your Account. </Text>
                 <View style={styles.signUpInputMainContainer}>
                   <SafeAreaView style={styles.signUpInputSubContainer}>
                     <Text style={styles.inputLabel}>Email</Text>
@@ -118,7 +121,7 @@ const SignIn = ({ navigation }) => {
                     navigation.navigate("signUp");
                   }}
                 >
-                  don't have account?<B>sign up</B>
+                  don't have account? <B>Sign up</B>
                 </Text>
               </View>
             </View>

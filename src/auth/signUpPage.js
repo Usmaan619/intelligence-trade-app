@@ -64,8 +64,10 @@ const SignUp = ({ navigation }) => {
           formikFn = formikProps;
           return (
             <View style={styles.signUpcontainer}>
-
-              <Text className="text-center my-5 text-lg font-semibold text-white">Create New Account</Text>
+              <View className='flex-row justify-center items-center'>
+                <Image source={ICONS?.intelligenceMainWhiteImg} resizeMode="cover" className='h-[90px] w-[170px] overflow-hidden' />
+              </View>
+              <Text className="text-center mb-2 mt-2 text-lg font-semibold text-white">Create New Account</Text>
 
               <View style={styles.signUpInputMainContainer}>
                 <SafeAreaView style={styles.signUpInputSubContainer}>
@@ -172,7 +174,7 @@ const SignUp = ({ navigation }) => {
                   navigation.navigate("signIn");
                 }}
               >
-                already have account?<B>sign in</B>
+                already have account? <B>Sign in</B>
               </Text>
             </View>
           );
