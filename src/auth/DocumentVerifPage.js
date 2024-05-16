@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native'
+import { View, Text, TouchableOpacity, Image, KeyboardAvoidingView } from 'react-native'
 import React, { useState } from 'react'
 
 import { Entypo } from '@expo/vector-icons';
@@ -9,6 +9,7 @@ import { GradientHOC } from '../HOC/Gradient.hoc';
 import { ICONS } from '../constants/Contant';
 import { useRoute } from '@react-navigation/native';
 import { registerAPI } from '../services/Auth.service';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 const DocumentVerifPage = ({ navigation }) => {
@@ -31,10 +32,8 @@ const DocumentVerifPage = ({ navigation }) => {
       });
 
       if (type === 'front') {
-        registerDetails.frontImg = result?.assets[0]?.base64
-        console.log('result?.assets[0]?.base64: ', result?.assets[0]?.base64);
-        console.log('registerDetails.frontImg: ', registerDetails.frontImg);
         setFrontImage(result?.assets[0]?.uri)
+        registerDetails.frontImg = result?.assets[0]?.base64
       }
 
       if (type === 'back') {
@@ -70,10 +69,18 @@ const DocumentVerifPage = ({ navigation }) => {
 
       <View className='px-5 py-2'>
         <View>
-
-          <View className='flex-row items-center gap-2 my-1'>
-            <Entypo name="text-document" size={24} color="white" />
-            <Text className='text-md text-white'>Upload document front page</Text>
+          <View className='flex-row justify-between items-center'>
+            <View className='flex-row items-center gap-2 mb-2 mt-1'>
+              <Entypo name="text-document" size={24} color="white" />
+              <Text className='text-md text-white'>Upload document front page</Text>
+            </View>
+            {frontImage &&
+              <TouchableOpacity className='mt-4' onPress={() => {
+                setFrontImage('')
+              }}>
+                <Entypo name="circle-with-cross" size={26} color="white" />
+              </TouchableOpacity>
+            }
           </View>
           {!frontImage &&
             <TouchableOpacity onPress={() => {
@@ -90,11 +97,20 @@ const DocumentVerifPage = ({ navigation }) => {
         </View>
 
         <View>
-
-          <View className='flex-row items-center gap-2 my-3'>
-            <Entypo name="text-document" size={24} color="white" />
-            <Text className='text-md text-white'>Upload document back page</Text>
+          <View className='flex-row justify-between items-center'>
+            <View className='flex-row items-center gap-2 my-3'>
+              <Entypo name="text-document" size={24} color="white" />
+              <Text className='text-md text-white'>Upload document back page</Text>
+            </View>
+            {backImage &&
+              <TouchableOpacity className='mt-4' onPress={() => {
+                setBackImage('')
+              }}>
+                <Entypo name="circle-with-cross" size={26} color="white" />
+              </TouchableOpacity>
+            }
           </View>
+
           {!backImage &&
             <TouchableOpacity onPress={() => {
               uploadImage('back')
@@ -108,7 +124,6 @@ const DocumentVerifPage = ({ navigation }) => {
           {backImage &&
             <Image source={{ uri: backImage }} resizeMode='cover' className='h-40 rounded flex-row justify-center items-center' />
           }
-
 
         </View>
 

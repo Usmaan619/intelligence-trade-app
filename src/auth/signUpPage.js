@@ -16,7 +16,7 @@ import { ICONS } from "../constants/Contant";
 import B from "../components/B.component";
 import { authStyles } from "../styles/authStyle";
 import { GradientHOC } from "../HOC/Gradient.hoc";
-import { signUpValidationSchema } from "./authService";
+import { signUpValidationSchema } from "../utils/helper";
 import CommonButton from "../components/CommonButton";
 
 

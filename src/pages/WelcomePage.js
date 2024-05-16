@@ -2,7 +2,7 @@ import React from "react";
 import { KeyboardAvoidingView, ScrollView, Text, View } from "react-native";
 import { GradientHOC } from "../HOC/Gradient.hoc";
 import { Formik } from "formik";
-import { signUpValidationSchema } from "../auth/authService";
+import { signUpValidationSchema } from "../utils/helper";
 const WelcomePage = ({ navigation }) => {
   let formikFn;
 

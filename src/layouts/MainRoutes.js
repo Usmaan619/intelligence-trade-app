@@ -21,8 +21,8 @@ const MainRoutes = () => {
 
 
         {/* <Stack.Screen name="StocksList" component={StocksList} /> */}
-        <Stack.Screen name="signIn" component={SignInPage} />
         <Stack.Screen name="DocumentVerif" component={DocumentVerifPage} />
+        <Stack.Screen name="signIn" component={SignInPage} />
         <Stack.Screen name="home" component={HomePage} />
         <Stack.Screen name="signUp" component={signUpPage} />
 
