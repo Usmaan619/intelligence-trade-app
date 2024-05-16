@@ -7,12 +7,16 @@ import CommonButton from '../components/CommonButton';
 import * as ImagePicker from 'expo-image-picker';
 import { GradientHOC } from '../HOC/Gradient.hoc';
 import { ICONS } from '../constants/Contant';
+import { useRoute } from '@react-navigation/native';
+import { registerAPI } from '../services/Auth.service';
 
 
-const DocumentVerifPage = () => {
+const DocumentVerifPage = ({ navigation }) => {
+  const route = useRoute()
+  const registerDetails = route?.params?.registerDetails
   const [frontImage, setFrontImage] = useState('')
   const [backImage, setBackImage] = useState('')
-  let img
+
 
 
   const uploadImage = async (type) => {
@@ -23,25 +27,37 @@ const DocumentVerifPage = () => {
         allowsEditing: true,
         aspect: [4, 3],
         quality: 1,
-        // base64: true
+        base64: true
       });
 
-
-
       if (type === 'front') {
-        const img = result?.assets[0]?.uri
-        console.log('img: ', img);
-        setFrontImage(img)
+        registerDetails.frontImg = result?.assets[0]?.base64
+        console.log('result?.assets[0]?.base64: ', result?.assets[0]?.base64);
+        console.log('registerDetails.frontImg: ', registerDetails.frontImg);
+        setFrontImage(result?.assets[0]?.uri)
       }
 
-      if (type === 'back') setBackImage(result?.assets[0]?.uri)
-      console.log('frontImage: ', frontImage);
-
+      if (type === 'back') {
+        setBackImage(result?.assets[0]?.uri)
+        registerDetails.backImg = result?.assets[0]?.base64
+      }
     } catch (error) {
       console.log('error: ', error);
-
     }
   };
+
+  const registerUser = async () => {
+    try {
+      console.log('registerDetails: ', registerDetails);
+      const res = await registerAPI(registerDetails)
+      console.log('res:registerAPI ', res?.data);
+      if (res?.msg === 'Success') navigation.navigate("home");
+
+    } catch (error) {
+      console.log('error:registerAPI ', error);
+
+    }
+  }
 
   return (
     <View style={{ flex: 1 }}>
@@ -101,7 +117,7 @@ const DocumentVerifPage = () => {
 
         <CommonButton
           onPress={() => {
-            console.log();
+            registerUser()
           }}
           title={"Upload"}
         />

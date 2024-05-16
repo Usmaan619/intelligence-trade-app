@@ -17,17 +17,28 @@ import { authStyles } from "../styles/authStyle";
 import { GradientHOC } from "../HOC/Gradient.hoc";
 import { loginValidationSchema } from "./authService";
 import CommonButton from "../components/CommonButton";
+import { loginAPI } from "../services/Auth.service";
 
 const SignIn = ({ navigation }) => {
   const [isShowPassword, setIsShowPassword] = useState(true);
+
   const togglePassword = () => {
     setIsShowPassword(!isShowPassword);
   };
 
-  const onSubmit = (val) => {
-    console.log("val: ", val);
 
-    navigation.navigate("home");
+
+  const onSubmit = async (val) => {
+    try {
+      console.log("val: ", val);
+
+      const res = await loginAPI(val)
+      console.log('res:loginAPI ', res?.data);
+
+      if (res?.msg) navigation.navigate("home");
+    } catch (error) {
+      console.log('error:loginAPI ', error);
+    }
   };
 
   return (
@@ -37,7 +48,6 @@ const SignIn = ({ navigation }) => {
         initialValues={{
           email: "",
           password: "",
-          Confpassword: "",
         }}
         onSubmit={onSubmit}
       >
@@ -112,7 +122,7 @@ const SignIn = ({ navigation }) => {
                     onPress={() => {
                       handleSubmit();
                     }}
-                    title={"sign up"}
+                    title={"sign In"}
                   />
                 </View>
                 <Text

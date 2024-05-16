@@ -1,11 +1,11 @@
 import axios from "axios";
 import { getData } from "../services/Storage.service";
-import { enviroment } from "../enviroment/enviroment";
 import { toastError } from "../services/Toaster.service";
 import { SetLoader } from "../redux/action/Loader.action";
+import { environment } from "../enviroments/enviroment";
 
 let axiosInstance = axios.create({
-  baseURL: enviroment.apiUrl,
+  baseURL: environment.apiUrl,
 });
 const AxiosInterceptors = (dispatch) => {
   // Add a request interceptor
