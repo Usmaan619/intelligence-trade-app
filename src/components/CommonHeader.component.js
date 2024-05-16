@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Fontisto } from "@expo/vector-icons";
+import { GradientHOC } from "../HOC/Gradient.hoc";
 const Header = ({ onSearch }) => {
   return (
     <View style={styles.header}>
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
     gap: 10,
     width: "100%",
     height: 100,
-    backgroundColor: "#fff",
+    // backgroundColor: "#fff",
     alignItems: "center",
     paddingTop: "10%",
     elevation: 5,
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
   searchContainer: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "white",
+    // backgroundColor: "white",
     borderRadius: 9,
     borderColor: "#d3d3d3",
     borderWidth: 1,
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
   walletContainer: {
     height: 37,
     width: 37,
-    backgroundColor: "#fff",
+    // backgroundColor: "#fff",
     borderRadius: 8,
     justifyContent: "center",
     alignItems: "center",
@@ -76,4 +77,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Header;
+export default GradientHOC(Header);

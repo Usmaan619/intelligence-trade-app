@@ -328,3 +328,20 @@ export const OUR_FEATURES = [
 ];
 
 
+export const PIE_CHART = {
+  labels: ["Swim", "Bike", "Run"], // optional
+  data: [0.4, 0.6, 0.8]
+};
+
+
+export const PIE_CHART_CONFIG = {
+  backgroundGradientFrom: "#08130D",
+  // backgroundGradientFromOpacity: 0,
+  // backgroundGradientTo: "#1E2923",
+
+  // backgroundGradientToOpacity: 0.5,
+  color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+  strokeWidth: 2, // optional, default 3
+  barPercentage: 0.5,
+  useShadowColorFromDataset: false // optional
+};

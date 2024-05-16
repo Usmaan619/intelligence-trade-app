@@ -3,9 +3,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import WelcomePage from "../pages/WelcomePage";
 import signUpPage from "../auth/signUpPage";
 import SignInPage from "../auth/SignInPage";
-import HomePage from "../withoutlogin/HomePage";
+import HomePage from "../with-out-login/HomePage";
 import StocksList from "../components/StocksList.component";
 import DocumentVerifPage from "../auth/DocumentVerifPage";
+import DashboardPage from "../with-login/DashboardPage";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,7 @@ const MainRoutes = () => {
 
 
         {/* <Stack.Screen name="StocksList" component={StocksList} /> */}
+        <Stack.Screen name="Dashboard" component={DashboardPage} />
         <Stack.Screen name="DocumentVerif" component={DocumentVerifPage} />
         <Stack.Screen name="signIn" component={SignInPage} />
         <Stack.Screen name="home" component={HomePage} />
