@@ -7,15 +7,16 @@ const Header = ({ onSearch }) => {
   return (
     <View style={styles.header}>
       <View style={styles.searchContainer}>
-        <Feather name="search" size={24} color="black" />
+        <Feather name="search" size={24} color="white" />
         <TextInput
           style={styles.searchInput}
           placeholder="Search..."
           onChangeText={onSearch}
+          placeholderTextColor={"#fff"}
         />
       </View>
       <View style={styles.walletContainer}>
-        <Fontisto name="wallet" size={24} color="#1e2029e0" />
+        <Fontisto name="wallet" size={24} color="#fff" />
       </View>
 
       <View style={styles.walletContainer}>
@@ -37,26 +38,30 @@ const styles = StyleSheet.create({
     paddingTop: "10%",
     elevation: 5,
     paddingHorizontal: "3%",
+    color: '#fff'
   },
   headerText: {
     color: "white",
     fontSize: 20,
     marginBottom: 10,
+
   },
   searchContainer: {
     flexDirection: "row",
     alignItems: "center",
     // backgroundColor: "white",
     borderRadius: 9,
-    borderColor: "#d3d3d3",
+    borderColor: "#fff",
     borderWidth: 1,
     paddingHorizontal: 15,
     width: "70%",
     height: 40,
+    color: '#fff'
   },
   searchInput: {
     marginLeft: 10,
     flex: 1,
+    color: '#fff'
   },
 
   walletContainer: {
@@ -66,12 +71,12 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     justifyContent: "center",
     alignItems: "center",
-    borderColor: "#d3d3d3",
+    borderColor: "#fff",
     borderWidth: 1,
   },
 
   profileTitle: {
-    color: "#000",
+    color: "#fff",
     fontSize: 20,
     fontWeight: "500",
   },

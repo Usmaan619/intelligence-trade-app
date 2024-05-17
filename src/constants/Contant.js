@@ -337,7 +337,7 @@ export const PIE_CHART = {
 export const PIE_CHART_CONFIG = {
   backgroundGradientFrom: "#08130D",
   // backgroundGradientFromOpacity: 0,
-  // backgroundGradientTo: "#1E2923",
+  backgroundGradientTo: "#1E2923",
 
   // backgroundGradientToOpacity: 0.5,
   color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
@@ -345,3 +345,46 @@ export const PIE_CHART_CONFIG = {
   barPercentage: 0.5,
   useShadowColorFromDataset: false // optional
 };
+
+
+export const AMOUNTS_LIST = [
+
+
+  {
+    investmentAmount: '$49.343',
+    currentValue: '$54.999',
+    date: Date.now()
+  },
+
+  {
+    investmentAmount: '$49.343',
+    currentValue: '$54.999',
+    date: Date.now()
+  },
+
+  {
+    investmentAmount: '$49.343',
+    currentValue: '$54.999',
+    date: Date.now()
+  },
+
+  {
+    investmentAmount: '$49.343',
+    currentValue: '$54.999',
+    date: Date.now()
+  },
+
+  {
+    investmentAmount: '$49.343',
+    currentValue: '$54.999',
+    date: Date.now()
+  },
+
+  {
+    investmentAmount: '$49.343',
+    currentValue: '$54.999',
+    date: Date.now()
+  }
+
+
+]
