@@ -53,7 +53,6 @@ export const ICONS = {
   profileEdit: require("../../assets/png/profileEdit.png"),
   connectMetaMask: require("../../assets/png/metaMask.png"),
 
-
   bannerImg: require("../../assets/png/alphatest.png"),
 
   homeImg: require("../../assets/png/homeImg.png"),
@@ -184,7 +183,6 @@ export const STOCKS_LIST = [
   },
 ];
 
-
 export const ARBITRATION_LIST = [
   {
     name: "BNB/USDT",
@@ -216,10 +214,7 @@ export const ARBITRATION_LIST = [
     buyingPrice: 355.68,
     sellingPrice: 355.68,
   },
-
-
 ];
-
 
 export const LIVE_MARKET_LIST = [
   {
@@ -232,7 +227,7 @@ export const LIVE_MARKET_LIST = [
   {
     todayOpen: "52 weeks low",
     todayClose: "52 weeks high",
-    lowPrice: 15.50,
+    lowPrice: 15.5,
     highPrice: 32.85,
   },
 
@@ -240,9 +235,8 @@ export const LIVE_MARKET_LIST = [
     todayOpen: "Open",
     todayClose: "Prev.close",
     lowPrice: 22.53,
-    highPrice: 29.40,
+    highPrice: 29.4,
   },
-
 ];
 
 export const LINE_CHART_DATA_RED = {
@@ -252,12 +246,11 @@ export const LINE_CHART_DATA_RED = {
       data: [20, 35, 28, 43, 33],
       // line color
       color: (opacity = 1) => `rgba(255,0,0, ${opacity})`, // optional
-      strokeWidth: 4 // optional
-    }
+      strokeWidth: 4, // optional
+    },
   ],
-  legend: ["Days"] // optional
+  legend: ["Days"], // optional
 };
-
 
 export const LINE_CHART_DATA_GREEN = {
   // labels: ["January", "February", "March", "April", "May", "June"],
@@ -266,16 +259,16 @@ export const LINE_CHART_DATA_GREEN = {
       data: [20, 45, 50, 99],
       // line color
       color: (opacity = 1) => `rgba(0,198,66, ${opacity})`, // optional
-      strokeWidth: 4 // optional
-    }
+      strokeWidth: 4, // optional
+    },
   ],
-  legend: ["Days"] // optionali
+  legend: ["Days"], // optionali
 };
 
 export const LINE_CHART_CONFIG = {
-  backgroundColor: '#1cc910',
-  backgroundGradientFrom: '#eff3ff',
-  backgroundGradientTo: '#efefef',
+  backgroundColor: "#1cc910",
+  backgroundGradientFrom: "#eff3ff",
+  backgroundGradientTo: "#efefef",
   decimalPlaces: 2, // optional, defaults to 2dp
   color: (opacity = 255) => `rgba(250, 0, 0, ${opacity})`,
   style: {
@@ -284,14 +277,14 @@ export const LINE_CHART_CONFIG = {
   propsForDots: {
     r: "3",
     strokeWidth: "4",
-    stroke: "red"
+    stroke: "red",
   },
-}
+};
 
 export const LINE_CHART_CONFIG_GREEN = {
-  backgroundColor: '#1cc910',
-  backgroundGradientFrom: '#eff3ff',
-  backgroundGradientTo: '#efefef',
+  backgroundColor: "#1cc910",
+  backgroundGradientFrom: "#eff3ff",
+  backgroundGradientTo: "#efefef",
   decimalPlaces: 2, // optional, defaults to 2dp
   color: (opacity = 255) => `rgba(0,198, 66, ${opacity})`,
   style: {
@@ -300,91 +293,139 @@ export const LINE_CHART_CONFIG_GREEN = {
   propsForDots: {
     r: "3",
     strokeWidth: "4",
-    stroke: "rgba(0,198,66,1)"
-
+    stroke: "rgba(0,198,66,1)",
   },
-}
-
+};
 
 export const OUR_FEATURES = [
   {
     name: "Safety",
-    Description: 'We do not have access to your personal data and cannot withdraw funds',
-    icon: 'security'
+    Description:
+      "We do not have access to your personal data and cannot withdraw funds",
+    icon: "security",
   },
 
   {
     name: "Automatization",
-    Description: 'Automatic arbitrage calculations and deal closing',
-    icon: 'auto-awesome-mosaic'
+    Description: "Automatic arbitrage calculations and deal closing",
+    icon: "auto-awesome-mosaic",
   },
-
 
   {
     name: "Analytics",
-    Description: 'The robot shows you how your trades are performing in real time',
-    icon: 'auto-graph'
+    Description:
+      "The robot shows you how your trades are performing in real time",
+    icon: "auto-graph",
   },
 ];
 
-
 export const PIE_CHART = {
   labels: ["Swim", "Bike", "Run"], // optional
-  data: [0.4, 0.6, 0.8]
+  data: [0.4, 0.6, 0.8],
 };
-
 
 export const PIE_CHART_CONFIG = {
   backgroundGradientFrom: "#08130D",
-  // backgroundGradientFromOpacity: 0,
+  backgroundGradientFromOpacity: 0.4,
   backgroundGradientTo: "#1E2923",
 
   // backgroundGradientToOpacity: 0.5,
   color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
   strokeWidth: 2, // optional, default 3
   barPercentage: 0.5,
-  useShadowColorFromDataset: false // optional
+  useShadowColorFromDataset: false, // optional
 };
 
-
 export const AMOUNTS_LIST = [
-
-
   {
-    investmentAmount: '$49.343',
-    currentValue: '$54.999',
-    date: Date.now()
+    investmentAmount: "$49.343",
+    currentValue: "$54.999",
+    date: Date.now(),
   },
 
   {
-    investmentAmount: '$49.343',
-    currentValue: '$54.999',
-    date: Date.now()
+    investmentAmount: "$49.343",
+    currentValue: "$54.999",
+    date: Date.now(),
   },
 
   {
-    investmentAmount: '$49.343',
-    currentValue: '$54.999',
-    date: Date.now()
+    investmentAmount: "$49.343",
+    currentValue: "$54.999",
+    date: Date.now(),
   },
 
   {
-    investmentAmount: '$49.343',
-    currentValue: '$54.999',
-    date: Date.now()
+    investmentAmount: "$49.343",
+    currentValue: "$54.999",
+    date: Date.now(),
   },
 
   {
-    investmentAmount: '$49.343',
-    currentValue: '$54.999',
-    date: Date.now()
+    investmentAmount: "$49.343",
+    currentValue: "$54.999",
+    date: Date.now(),
   },
 
   {
-    investmentAmount: '$49.343',
-    currentValue: '$54.999',
-    date: Date.now()
-  }
+    investmentAmount: "$49.343",
+    currentValue: "$54.999",
+    date: Date.now(),
+  },
+];
 
+export const GIF = {
+  marketTranGif: require("../../assets/gif/marketTrand.gif"),
+  mutualFunds: require("../../assets/gif/mutualFunds.gif"),
+};
 
-]
+export const TRANDS_DATA = [
+  {
+    title: "IPO",
+    subTitle: "SME IPO-Rulka Electricals Limited",
+    btn: "APPLY NOW",
+    openAnClose: "Closing in 1 days",
+  },
+
+  {
+    title: "IPO",
+    subTitle: "SME IPO-Rulka Electricals Limited",
+    btn: "APPLY NOW",
+    openAnClose: "Closing in 1 days",
+  },
+
+  {
+    title: "IPO",
+    subTitle: "SME IPO-Rulka Electricals Limited",
+    btn: "APPLY NOW",
+    openAnClose: "Closing in 1 days",
+  },
+
+  {
+    title: "IPO",
+    subTitle: "SME IPO-Rulka Electricals Limited",
+    btn: "APPLY NOW",
+    openAnClose: "Closing in 1 days",
+  },
+
+  {
+    title: "IPO",
+    subTitle: "SME IPO-Rulka Electricals Limited",
+    btn: "APPLY NOW",
+    openAnClose: "Closing in 1 days",
+  },
+
+  {
+    title: "IPO",
+    subTitle: "SME IPO-Rulka Electricals Limited",
+    btn: "APPLY NOW",
+    openAnClose: "Closing in 1 days",
+  },
+
+  {
+    title: "IPO",
+    subTitle: "SME IPO-Rulka Electricals Limited",
+    btn: "APPLY NOW",
+    openAnClose: "Closing in 1 days",
+  },
+];

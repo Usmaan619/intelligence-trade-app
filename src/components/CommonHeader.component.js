@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     gap: 10,
     width: "100%",
     height: 100,
-    // backgroundColor: "#fff",
+    backgroundColor: "#000",
     alignItems: "center",
     paddingTop: "10%",
     elevation: 5,
