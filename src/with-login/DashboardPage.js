@@ -15,6 +15,9 @@ import {
   AMOUNTS_LIST,
   ARBITRATION_LIST,
   GIF,
+  ICONS,
+  INVEST_BEST_DATA,
+  NEWS_DATA,
   PIE_CHART,
   PIE_CHART_CONFIG,
   TRANDS_DATA,
@@ -368,6 +371,131 @@ const DashboardPage = () => {
             </View>
           </ScrollView>
         </View>
+
+        {/* best invest */}
+        <View className="px-3 py-4">
+          <View className="flex-row justify-between items-center mt-3 mb-10">
+            <View>
+              <Text className="font-bold text-lg  text-white">
+                See How Best Invest
+              </Text>
+              <Text className="font-medium text-sm text-gray-400">
+                Get access to the top investors Holdings,
+              </Text>
+              <Text className="font-medium text-xs text-gray-400">
+                Net Worth and Company History.
+              </Text>
+            </View>
+            <Image
+              source={GIF.bestTrads}
+              className="h-12 w-12  "
+              resizeMode="cover"
+            />
+          </View>
+          <ScrollView className="flex-row  gap-4 h-52" horizontal={true}>
+            {INVEST_BEST_DATA?.map((d, idx) => (
+              <View
+                key={idx}
+                className="h-40 w-28  bg-slate-500 rounded-lg relative"
+              >
+                <View className="flex justify-center items-center my-auto ">
+                  <Animatable.Text
+                    animation="pulse"
+                    easing="ease-in-out-expo"
+                    iterationCount="infinite"
+                    className=" rounded-3xl bg-white p-2 absolute -top-[78px] h-10 w-10  text-center"
+                    style={{ elevation: 8 }}
+                  >
+                    <Text className=" font-semibold text-center">
+                      {d?.name}
+                    </Text>
+                  </Animatable.Text>
+                  <Text className="font-bold text-white text-md flex justify-center items-center w-16 text-center truncate">
+                    {d?.fullName}
+                  </Text>
+
+                  <View className="h-8 w-8 bg-slate-900 rounded-2xl flex justify-center items-center absolute -bottom-20">
+                    <Animatable.Text
+                      animation="pulse"
+                      easing="ease-in-out-circ"
+                      iterationCount="infinite"
+                      style={{ elevation: 8 }}
+                    >
+                      <AntDesign name="right" size={18} color="white" />
+                    </Animatable.Text>
+                  </View>
+                </View>
+              </View>
+            ))}
+          </ScrollView>
+        </View>
+        {/* best invest  end*/}
+
+        {/* news */}
+        <View className="px-3 py-4">
+          <View className="flex-row justify-between items-center mt-3 mb-10">
+            <View>
+              <Text className="font-bold text-lg  text-white">News</Text>
+              <Text className="font-medium text-sm text-gray-400">
+                Stays informed with the latest news froms the
+              </Text>
+              <Text className="font-medium text-xs text-gray-400">
+                financial market
+              </Text>
+            </View>
+            <Image
+              source={GIF.newsGif}
+              className="h-12 w-12  "
+              resizeMode="cover"
+            />
+          </View>
+
+          <View className="flex-row my-3">
+            <ScrollView horizontal={true}>
+              {NEWS_DATA?.map((d, idx) => (
+                <View
+                  key={idx}
+                  className="border border-yellow-400 p-2 rounded-3xl text-center flex-row mx-1 overflow-hidden"
+                >
+                  <Text className="text-white">{d?.name}</Text>
+                </View>
+              ))}
+            </ScrollView>
+          </View>
+
+          <View className="flex gap-3 items-center">
+            {NEWS_DATA?.map((d, idx) => (
+              <View
+                key={idx}
+                className="h-32 w-full bg-slate-500 rounded-lg"
+                style={{ elevation: 8, overflow: "hidden" }}
+              >
+                <View className="flex-row justify-between">
+                  <Text
+                    className="truncate w-60 pt-4 text-base font-semibold text-white"
+                    style={{ paddingStart: 14 }}
+                  >
+                    {d?.title}
+                  </Text>
+                  <View className="p-2">
+                    <Image
+                      className="h-20 w-20"
+                      source={ICONS?.coinBaseImg}
+                      resizeMode="cover"
+                    />
+                  </View>
+                </View>
+                <Text
+                  className="text-gray-300 font-semibold text-xs"
+                  style={{ paddingStart: 12 }}
+                >
+                  {moment().format("LLL")}
+                </Text>
+              </View>
+            ))}
+          </View>
+        </View>
+        {/* news end */}
       </View>
     </ScrollView>
   );

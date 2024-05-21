@@ -377,6 +377,8 @@ export const AMOUNTS_LIST = [
 export const GIF = {
   marketTranGif: require("../../assets/gif/marketTrand.gif"),
   mutualFunds: require("../../assets/gif/mutualFunds.gif"),
+  bestTrads: require("../../assets/gif/best-trads.gif"),
+  newsGif: require("../../assets/gif/news.gif"),
 };
 
 export const TRANDS_DATA = [
@@ -427,5 +429,59 @@ export const TRANDS_DATA = [
     subTitle: "SME IPO-Rulka Electricals Limited",
     btn: "APPLY NOW",
     openAnClose: "Closing in 1 days",
+  },
+];
+
+export const INVEST_BEST_DATA = [
+  {
+    name: "RD",
+    fullName: "Ramesh Damani",
+  },
+
+  {
+    name: "RD",
+    fullName: "Ramesh Damani",
+  },
+
+  {
+    name: "RD",
+    fullName: "Ramesh Damani",
+  },
+
+  {
+    name: "RD",
+    fullName: "Ramesh Damani",
+  },
+];
+
+export const NEWS_DATA = [
+  {
+    name: "Tax Savings",
+    title: "Vita labs Standalone March 2024 Net sales at Rs 79.34",
+  },
+
+  {
+    name: "Crypto Currencies",
+    title: "Vita labs Standalone March 2024 Net sales at Rs 79.34",
+  },
+
+  {
+    name: "Business Update",
+    title: "Vita labs Standalone March 2024 Net sales at Rs 79.34",
+  },
+
+  {
+    name: "Tax Savings",
+    title: "Vita labs Standalone March 2024 Net sales at Rs 79.34",
+  },
+
+  {
+    name: "Crypto Currencies",
+    title: "Vita labs Standalone March 2024 Net sales at Rs 79.34",
+  },
+
+  {
+    name: "Business Update",
+    title: "Vita labs Standalone March 2024 Net sales at Rs 79.34",
   },
 ];
