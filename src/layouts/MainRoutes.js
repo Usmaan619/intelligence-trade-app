@@ -7,6 +7,7 @@ import HomePage from "../with-out-login/HomePage";
 import StocksList from "../components/StocksList.component";
 import DocumentVerifPage from "../auth/DocumentVerifPage";
 import DashboardPage from "../with-login/DashboardPage";
+import DashbordRoute from "./DashbordRoute";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,15 +20,11 @@ const MainRoutes = () => {
           animation: "slide_from_right",
         }}
       >
-
-
-        {/* <Stack.Screen name="StocksList" component={StocksList} /> */}
-        <Stack.Screen name="Dashboard" component={DashboardPage} />
+        <Stack.Screen name="Dashboard" component={DashbordRoute} />
         <Stack.Screen name="DocumentVerif" component={DocumentVerifPage} />
         <Stack.Screen name="signIn" component={SignInPage} />
         <Stack.Screen name="home" component={HomePage} />
         <Stack.Screen name="signUp" component={signUpPage} />
-
 
         <Stack.Screen name="WelcomePage" component={WelcomePage} />
       </Stack.Navigator>

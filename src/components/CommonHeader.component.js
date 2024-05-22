@@ -1,28 +1,44 @@
-import React from "react";
-import { View, Text, TextInput, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Fontisto } from "@expo/vector-icons";
 import { GradientHOC } from "../HOC/Gradient.hoc";
+import HeaderModal from "./headerModal.component";
 const Header = ({ onSearch }) => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalVisible(!isModalVisible);
+  };
   return (
-    <View style={styles.header}>
-      <View style={styles.searchContainer}>
-        <Feather name="search" size={24} color="white" />
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Search..."
-          onChangeText={onSearch}
-          placeholderTextColor={"#fff"}
-        />
-      </View>
-      <View style={styles.walletContainer}>
-        <Fontisto name="wallet" size={24} color="#fff" />
+    <>
+      <View style={styles.header}>
+        <View style={styles.searchContainer}>
+          <Feather name="search" size={24} color="white" />
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Search..."
+            onChangeText={onSearch}
+            placeholderTextColor={"#fff"}
+          />
+        </View>
+        <View style={styles.walletContainer}>
+          <Fontisto name="wallet" size={24} color="#fff" />
+        </View>
+
+        <TouchableOpacity style={styles.walletContainer} onPress={toggleModal}>
+          <Text style={styles.profileTitle}>US</Text>
+        </TouchableOpacity>
       </View>
 
-      <View style={styles.walletContainer}>
-        <Text style={styles.profileTitle}>US</Text>
-      </View>
-    </View>
+      <HeaderModal visible={isModalVisible} onClose={toggleModal} />
+    </>
   );
 };
 
@@ -38,13 +54,12 @@ const styles = StyleSheet.create({
     paddingTop: "10%",
     elevation: 5,
     paddingHorizontal: "3%",
-    color: '#fff'
+    color: "#fff",
   },
   headerText: {
     color: "white",
     fontSize: 20,
     marginBottom: 10,
-
   },
   searchContainer: {
     flexDirection: "row",
@@ -56,12 +71,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     width: "70%",
     height: 40,
-    color: '#fff'
+    color: "#fff",
   },
   searchInput: {
     marginLeft: 10,
     flex: 1,
-    color: '#fff'
+    color: "#fff",
   },
 
   walletContainer: {

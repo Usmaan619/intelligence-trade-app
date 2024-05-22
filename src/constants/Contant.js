@@ -106,6 +106,11 @@ export const ICONS = {
 
   eyeGreyImg: require("../../assets/png/eyeGrey.png"),
   eyeCrossGreyImg: require("../../assets/png/eyeCrossGrey.png"),
+
+  mutualFundImg: require("../../assets/png/mutualFund.png"),
+
+  portfolioImg: require("../../assets/png/portfolio.png"),
+  stockImg: require("../../assets/png/stock-ticker.png"),
 };
 
 export const constant = {
