@@ -17,6 +17,7 @@ import { Octicons } from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
 import { useState } from "react";
 import ModalComponent from "../components/Modal.component";
+import PortFolioPage from "../with-login/PortFolioPage";
 
 const Tab = createBottomTabNavigator();
 const COLORS = {
@@ -169,7 +170,7 @@ export default function TabNavigation() {
         />
         <Tab.Screen
           name="Portfolio"
-          component={WelcomePage}
+          component={PortFolioPage}
           options={{
             tabBarIcon: ({ focused }) => {
               return (

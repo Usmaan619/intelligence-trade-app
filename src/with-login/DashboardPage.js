@@ -463,7 +463,7 @@ const DashboardPage = () => {
             </ScrollView>
           </View>
 
-          <View className="flex gap-3 items-center">
+          <View className="flex gap-3 items-center mb-14">
             {NEWS_DATA?.map((d, idx) => (
               <View
                 key={idx}

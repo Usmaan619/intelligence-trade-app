@@ -12,7 +12,10 @@ const DashboardLayout = () => {
     <NavigationContainer independent={true} swipeEnabled={true}>
       {
         <Drawer.Navigator
-          screenOptions={{ headerShown: false, drawerPosition: "" }}
+          screenOptions={{
+            headerShown: false,
+            swipeEdgeWidth: 0,
+          }}
           drawerContent={(props) => <CustomDrawerContent {...props} />}
         >
           <Drawer.Screen name="Dashboard" component={TabNavigation} />

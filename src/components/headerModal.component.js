@@ -1,63 +1,49 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { View, Button, Text, StyleSheet } from "react-native";
 import Modal from "react-native-modal";
 
 const HeaderModal = ({ visible, onClose }) => {
   return (
-    <Modal
-      //   animationType="fade"
-      animationType="slide"
-      animationIn="bounceInRight"
-      animationOut="slideOutDown"
-      backdropTransitionInTiming={500}
-      backdropTransitionOutTiming={500}
-      visible={visible}
-      onRequestClose={onClose}
-      onBackdropPress={onClose}
-      onBackButtonPress={onClose} // Optional: for Android back button press
-    >
-      <View style={styles.centeredView}>
-        <View style={styles.modalView}>
-          <Text className="text-md font-semibold mb-2">Features</Text>
+    <View style={styles.container}>
+      {/* <Button title="Show Modal" onPress={toggleModal} /> */}
+
+      <Modal
+        isVisible={visible}
+        animationIn="slideInDown"
+        animationOut="slideOutUp"
+        onBackdropPress={onClose}
+        onSwipeComplete={onClose}
+        swipeDirection="up"
+        onRequestClose={onClose}
+        onBackButtonPress={onClose}
+        style={styles.modal}
+      >
+        <View style={styles.modalContent}>
+          <Button title="Hide Modal" onPress={onClose} />
         </View>
-      </View>
-    </Modal>
+      </Modal>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  centeredView: {
+  container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
-  modalView: {
-    margin: 20,
+  modal: {
+    justifyContent: "flex-start", // Position the modal at the top
+    margin: 0, // Fullscreen modal without margin
+  },
+  modalContent: {
     backgroundColor: "white",
-    borderRadius: 20,
-    padding: 35,
+    padding: 22,
+    justifyContent: "center",
     alignItems: "center",
-    shadowColor: "#000",
-    width: 365,
-    height: 550,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  openButton: {
-    backgroundColor: "#F194FF",
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
-  },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center",
+    borderRadius: 4,
+    borderColor: "rgba(0, 0, 0, 0.1)",
+    height: 300,
   },
 });
 
