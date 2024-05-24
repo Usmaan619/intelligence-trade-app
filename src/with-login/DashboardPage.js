@@ -6,6 +6,7 @@ import {
   useWindowDimensions,
   StyleSheet,
   Image,
+  TouchableOpacity,
 } from "react-native";
 import React from "react";
 import { GradientHOC } from "../HOC/Gradient.hoc";
@@ -32,7 +33,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
-const DashboardPage = () => {
+const DashboardPage = ({ navigation }) => {
   const screenWidth = useWindowDimensions().width;
 
   const handleSearch = () => {
@@ -43,7 +44,12 @@ const DashboardPage = () => {
     <ScrollView style={{ flexGrow: 1 }}>
       <Header onSearch={handleSearch} />
       <View style={{ flex: 1 }}>
-        <View className="h-56 w-full flex justify-center  rounded">
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Portfolio");
+          }}
+          className="h-56 w-full flex justify-center  rounded"
+        >
           <ProgressChart
             data={PIE_CHART}
             width={screenWidth}
@@ -53,7 +59,7 @@ const DashboardPage = () => {
             chartConfig={PIE_CHART_CONFIG}
             hideLegend={false}
           />
-        </View>
+        </TouchableOpacity>
 
         <View className="w-full mt-4">
           <MarqueeText
@@ -66,106 +72,106 @@ const DashboardPage = () => {
             industry and typesetting industry.
           </MarqueeText>
         </View>
-
-        <View className="flex-row justify-center items-center mt-4">
-          <View className="flex-row gap-2">
-            <View className="h-60 w-48 bg-slate-500 rounded">
-              <View className="p-3">
-                <Text className="font-bold text-center text-white">
-                  Amounts
-                </Text>
-                <View className="flex-row justify-between items-center mt-3">
-                  <Text className="text-white text-xs">Investment</Text>
-                  <Text className="text-white text-xs">Current Values</Text>
-                </View>
-                {AMOUNTS_LIST?.map((d, idx) => (
-                  <View
-                    className="flex-row justify-between items-center mt-3"
-                    key={idx}
-                  >
-                    <Text className="text-white text-xs">
-                      {d?.investmentAmount}
-                    </Text>
-                    <Text className="text-white text-xs">
-                      {d?.currentValue}
-                    </Text>
+        <View className="px-3">
+          <View className="flex-row justify-center items-center mt-4">
+            <View className="flex-row justify-between items-center gap-2">
+              <View className="h-60 w-44 bg-slate-500 rounded">
+                <View className="p-3">
+                  <Text className="font-bold text-center text-white">
+                    Amounts
+                  </Text>
+                  <View className="flex-row justify-between items-center mt-3">
+                    <Text className="text-white text-xs">Investment</Text>
+                    <Text className="text-white text-xs">Current Values</Text>
                   </View>
-                ))}
+                  {AMOUNTS_LIST?.map((d, idx) => (
+                    <View
+                      className="flex-row justify-between items-center mt-3"
+                      key={idx}
+                    >
+                      <Text className="text-white text-xs">
+                        {d?.investmentAmount}
+                      </Text>
+                      <Text className="text-white text-xs">
+                        {d?.currentValue}
+                      </Text>
+                    </View>
+                  ))}
+                </View>
               </View>
-            </View>
-            <View className="h-60  w-48 bg-slate-500 rounded">
-              <View className="p-3">
-                <Text className="font-bold text-center text-white">Time</Text>
-                <View className="flex-row justify-between items-center mt-3">
-                  <Text className="text-white text-xs">Investment</Text>
-                  <Text className="text-white text-xs">Purchase</Text>
-                </View>
-                {AMOUNTS_LIST?.map((d, idx) => (
-                  <View
-                    className="flex-row justify-between items-center mt-3"
-                    key={idx}
-                  >
-                    <Text className="text-white text-xs">
-                      {d?.investmentAmount}
-                    </Text>
-                    <Text className="text-white text-xs">
-                      {moment(d?.date).format("L")}
-                    </Text>
+              <View className="h-60  w-44 bg-slate-500 rounded">
+                <View className="p-3">
+                  <Text className="font-bold text-center text-white">Time</Text>
+                  <View className="flex-row justify-between items-center mt-3">
+                    <Text className="text-white text-xs">Investment</Text>
+                    <Text className="text-white text-xs">Purchase</Text>
                   </View>
-                ))}
+                  {AMOUNTS_LIST?.map((d, idx) => (
+                    <View
+                      className="flex-row justify-between items-center mt-3"
+                      key={idx}
+                    >
+                      <Text className="text-white text-xs">
+                        {d?.investmentAmount}
+                      </Text>
+                      <Text className="text-white text-xs">
+                        {moment(d?.date).format("L")}
+                      </Text>
+                    </View>
+                  ))}
+                </View>
               </View>
             </View>
           </View>
+
+          <DataTable className="rounded bg-slate-500 my-3">
+            <DataTable.Header className="text-white">
+              <DataTable.Title>
+                <Text className="text-white font-bold text-center">Pair</Text>
+              </DataTable.Title>
+              <DataTable.Title>
+                <Text className="text-white font-bold text-center">
+                  Buying Price
+                </Text>
+              </DataTable.Title>
+              <DataTable.Title>
+                <Text className="text-white font-bold text-center">
+                  Selling Price
+                </Text>
+              </DataTable.Title>
+            </DataTable.Header>
+
+            {ARBITRATION_LIST?.map((d, idx) => (
+              <DataTable.Row key={idx} style={{ width: "100%" }}>
+                <DataTable.Cell>
+                  <View className="flex-row items-center  gap-1 me-10 w-full">
+                    <FontAwesome name="bitcoin" size={15} color="#e5f13e" />
+                    <Text className="text-white font-bold text-center ">
+                      {d?.name}
+                    </Text>
+                  </View>
+                </DataTable.Cell>
+                <DataTable.Cell>
+                  <View className="flex-row  items-center justify-center gap-1 w-full text-center">
+                    <FontAwesome name="dollar" size={15} color="green" />
+
+                    <Text className="text-white font-bold text-left ">
+                      {d?.buyingPrice}
+                    </Text>
+                  </View>
+                </DataTable.Cell>
+                <DataTable.Cell>
+                  <View className="flex-row items-center justify-center  gap-1">
+                    <FontAwesome name="dollar" size={15} color="red" />
+                    <Text className="text-white font-bold text-center ">
+                      {d?.sellingPrice}
+                    </Text>
+                  </View>
+                </DataTable.Cell>
+              </DataTable.Row>
+            ))}
+          </DataTable>
         </View>
-
-        <DataTable className="rounded bg-slate-500 my-3">
-          <DataTable.Header className="text-white">
-            <DataTable.Title>
-              <Text className="text-white font-bold text-center">Pair</Text>
-            </DataTable.Title>
-            <DataTable.Title>
-              <Text className="text-white font-bold text-center">
-                Buying Price
-              </Text>
-            </DataTable.Title>
-            <DataTable.Title>
-              <Text className="text-white font-bold text-center">
-                Selling Price
-              </Text>
-            </DataTable.Title>
-          </DataTable.Header>
-
-          {ARBITRATION_LIST?.map((d, idx) => (
-            <DataTable.Row key={idx} style={{ width: "100%" }}>
-              <DataTable.Cell>
-                <View className="flex-row items-center  gap-1 me-10 w-full">
-                  <FontAwesome name="bitcoin" size={15} color="#e5f13e" />
-                  <Text className="text-white font-bold text-center ">
-                    {d?.name}
-                  </Text>
-                </View>
-              </DataTable.Cell>
-              <DataTable.Cell>
-                <View className="flex-row  items-center justify-center gap-1 w-full text-center">
-                  <FontAwesome name="dollar" size={15} color="green" />
-
-                  <Text className="text-white font-bold text-left ">
-                    {d?.buyingPrice}
-                  </Text>
-                </View>
-              </DataTable.Cell>
-              <DataTable.Cell>
-                <View className="flex-row items-center justify-center  gap-1">
-                  <FontAwesome name="dollar" size={15} color="red" />
-                  <Text className="text-white font-bold text-center ">
-                    {d?.sellingPrice}
-                  </Text>
-                </View>
-              </DataTable.Cell>
-            </DataTable.Row>
-          ))}
-        </DataTable>
-
         {/* portfolio */}
 
         <View className="px-3 py-4">
@@ -173,8 +179,13 @@ const DashboardPage = () => {
             <Text className="font-bold text-lg py-3 text-white">Portfolio</Text>
           </View>
 
-          <View className=" flex-row grid-cols-2 grid-rows-2 gap-4">
-            <View className="h-36 w-44 inline bg-slate-500 rounded-lg ">
+          <View className=" flex-row  gap-2 items-center">
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("Portfolio");
+              }}
+              className="h-36 w-44 inline bg-slate-500 rounded-lg "
+            >
               <View className="flex justify-center items-center my-auto">
                 <Animatable.Text
                   animation="pulse"
@@ -188,7 +199,7 @@ const DashboardPage = () => {
                   Highest Rated Funds
                 </Text>
               </View>
-            </View>
+            </TouchableOpacity>
 
             <View className="h-36 w-44 inline bg-slate-500 rounded-lg ">
               <View className="flex justify-center items-center my-auto">
@@ -206,7 +217,7 @@ const DashboardPage = () => {
               </View>
             </View>
           </View>
-          <View className=" flex-row grid-cols-2 grid-rows-2 gap-4 mt-2">
+          <View className=" flex-row   gap-2 items-center mt-1">
             <View className="h-36 w-44 inline bg-slate-500 rounded-lg ">
               <View className="flex justify-center items-center my-auto">
                 <Animatable.Text
@@ -275,12 +286,12 @@ const DashboardPage = () => {
                     </Text>
                   </View>
 
-                  <Text className="text-white font-semibold">
+                  <Text className="text-white font-semibold text-sm">
                     {d?.subTitle}
                   </Text>
                 </View>
                 <View className="flex-row items-center justify-center ">
-                  <Text className="text-yellow-200 font-semibold ">
+                  <Text className="text-yellow-200 font-semibold text-sm">
                     {d?.btn}
                     <AntDesign name="right" size={17} color="yellow" />
                   </Text>
@@ -437,10 +448,10 @@ const DashboardPage = () => {
             <View>
               <Text className="font-bold text-lg  text-white">News</Text>
               <Text className="font-medium text-sm text-gray-400">
-                Stays informed with the latest news froms the
+                Stays informed with the latest news
               </Text>
               <Text className="font-medium text-xs text-gray-400">
-                financial market
+                froms the financial market
               </Text>
             </View>
             <Image

@@ -4,6 +4,8 @@ import Header from "../components/CommonHeader.component";
 import { GradientHOC } from "../HOC/Gradient.hoc";
 import moment from "moment";
 import { AntDesign } from "@expo/vector-icons";
+
+import * as Animatable from "react-native-animatable";
 const PortFolioPage = () => {
   const handleSearch = () => {};
 
@@ -60,14 +62,22 @@ const PortFolioPage = () => {
             style={{ elevation: 8 }}
           >
             <View className="p-3">
-              <View className="flex-row justify-between items-center ">
-                <Text className="text-white font-normal">
-                  Last Updated:{moment().format("lll")}
+              <View className="flex-row justify-between items-center">
+                <Text className="text-white font-normal text-xs">
+                  Last Updated: {moment().format("lll")}
                 </Text>
 
-                <View className="flex-row border border-yellow-400 h-7 w-24 px-2 rounded items-center justify-between">
+                <View className="flex-row border border-yellow-400 h-8 gap-1 px-1 rounded items-baseline">
                   <Text className="text-yellow-400 font-semibold">Analyse</Text>
-                  <AntDesign name="right" size={14} color="#ffa500d1" />
+
+                  <Animatable.View
+                    animation="pulse"
+                    iterationCount="infinite"
+                    direction="alternate-reverse"
+                    easing="linear"
+                  >
+                    <AntDesign name="right" size={14} color="#ffa500d1" />
+                  </Animatable.View>
                 </View>
               </View>
 
@@ -119,7 +129,8 @@ const PortFolioPage = () => {
           ))}
         </ScrollView>
 
-        <View className="px-3 py-3">
+        <View className="px-3 pt-3">
+          {/* equity */}
           <View
             className="h-48 bg-slate-500 rounded-md my-2"
             style={{ elevation: 8 }}
@@ -127,14 +138,28 @@ const PortFolioPage = () => {
             <View className="p-3">
               <View className="flex-row justify-between items-center ">
                 <View className="flex-row gap-2 items-center">
-                  <View className="h-10 w-10 bg-blue-600 rounded-3xl"></View>
+                  <Animatable.View
+                    animation="pulse"
+                    iterationCount="infinite"
+                    direction="alternate-reverse"
+                    easing="linear"
+                  >
+                    <View className="h-10 w-10 bg-blue-600 rounded-3xl"></View>
+                  </Animatable.View>
                   <Text className="text-white text-base font-normal">
                     Equity(100.00%)
                   </Text>
                 </View>
 
                 <View className="flex-row border border-yellow-400 h-6 w-6  rounded items-center justify-center">
-                  <AntDesign name="right" size={14} color="#ffa500d1" />
+                  <Animatable.View
+                    animation="pulse"
+                    iterationCount="infinite"
+                    direction="alternate-reverse"
+                    easing="linear"
+                  >
+                    <AntDesign name="right" size={14} color="#ffa500d1" />
+                  </Animatable.View>
                 </View>
               </View>
 
@@ -178,22 +203,36 @@ const PortFolioPage = () => {
               </View>
             </View>
           </View>
-
+          {/* us stocks */}
           <View
-            className="h-48 bg-slate-500 rounded-md mt-2 mb-24"
+            className="h-48 bg-slate-500 rounded-md mt-2 mb-6"
             style={{ elevation: 8 }}
           >
             <View className="p-3">
               <View className="flex-row justify-between items-center ">
                 <View className="flex-row gap-2 items-center">
-                  <View className="h-10 w-10 bg-red-600 rounded-3xl"></View>
+                  <Animatable.View
+                    animation="pulse"
+                    iterationCount="infinite"
+                    direction="alternate-reverse"
+                    easing="linear"
+                  >
+                    <View className="h-10 w-10 bg-red-600 rounded-3xl"></View>
+                  </Animatable.View>
                   <Text className="text-white text-base font-normal">
                     Us Stocks(100.00%)
                   </Text>
                 </View>
 
                 <View className="flex-row border border-yellow-400 h-6 w-6  rounded items-center justify-center">
-                  <AntDesign name="right" size={14} color="#ffa500d1" />
+                  <Animatable.View
+                    animation="pulse"
+                    iterationCount="infinite"
+                    direction="alternate-reverse"
+                    easing="linear"
+                  >
+                    <AntDesign name="right" size={14} color="#ffa500d1" />
+                  </Animatable.View>
                 </View>
               </View>
 
@@ -233,6 +272,53 @@ const PortFolioPage = () => {
                       + 6.70(+5.91%)
                     </Text>
                   </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+
+        <View className="px-3 mb-24 ">
+          <View className="flex-row justify-between items-center  mb-10">
+            <Text className="font-bold text-lg text-white">
+              Profit & Loss Summary
+            </Text>
+            <Text className="font-bold text-sm text-white">
+              {moment().calendar()}
+            </Text>
+          </View>
+
+          <View
+            className="h-32 bg-slate-500 rounded-md  mb-6"
+            style={{ elevation: 8 }}
+          >
+            <View className="p-3">
+              <View className="flex-row justify-between pt-3 items-center">
+                <View className="grid gap-2 items-start ">
+                  <Text className="font-normal text-base text-white">
+                    Booked P/L
+                  </Text>
+
+                  <Text className="font-normal text-base text-white">
+                    Short Term G/L
+                  </Text>
+
+                  <Text className="font-normal text-base text-white">
+                    Long Term G/L
+                  </Text>
+                </View>
+
+                <View className="grid gap-2 items-end">
+                  <Text className="font-semibold text-base text-white text-right">
+                    $ 133.70
+                  </Text>
+
+                  <Text className="font-semibold text-base text-white text-right">
+                    $ 10.70
+                  </Text>
+                  <Text className="font-semibold text-base text-white text-right">
+                    $ 6.70
+                  </Text>
                 </View>
               </View>
             </View>
