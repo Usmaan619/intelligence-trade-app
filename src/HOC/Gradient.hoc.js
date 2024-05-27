@@ -3,20 +3,16 @@ import { LinearGradient } from "expo-linear-gradient";
 
 export const GradientHOC = (Component) => {
   const gradientProps = {
-    // colors: [
-    //   "#ffffff",
-    //   "#fbe6ff" /** Pink */,
-    //   "#fbe6ff" /** Pink */,
-    //   "#fff3e6" /** Orange */,
-    //   "#e6ffee" /** Green */,
-    //   "#ffffff",
-    // ],
-
-    // colors: ["#7ED6DF", "#000000"],
-    // colors: ['#001510',"#00bf8f", "#001510"],
-    colors: ["#0f0c29", "#302b63", "#24243e"]
-    // colors: ["#3AB196", "#3AB196"]
-
+    colors: [
+      "#006548",
+      "#000",
+      "#000",
+      "#000",
+      "#000",
+      "#006548",
+      "#000",
+      "#000",
+    ],
   };
   // "#16142a",
 
@@ -31,7 +27,7 @@ export const GradientHOC = (Component) => {
         <LinearGradient
           colors={gradientProps.colors}
           style={styles.gradient}
-          end={{ x: 0.2, y: 0.8 }}
+          end={{ x: 0.0, y: 0.9 }}
         />
         <Component {...props} />
       </>

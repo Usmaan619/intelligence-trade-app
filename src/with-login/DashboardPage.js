@@ -4,7 +4,7 @@ import {
   ScrollView,
   Dimensions,
   useWindowDimensions,
-  StyleSheet,
+  Styleheet,
   Image,
   TouchableOpacity,
 } from "react-native";
@@ -26,23 +26,114 @@ import {
 import MarqueeText from "react-native-marquee";
 import moment from "moment";
 import { FontAwesome } from "@expo/vector-icons";
-import { DataTable } from "react-native-paper";
+import { DataTable, Icon } from "react-native-paper";
 import * as Animatable from "react-native-animatable";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { BlurView } from "expo-blur";
+import { LinearGradient } from "expo-linear-gradient";
 const DashboardPage = ({ navigation }) => {
   const screenWidth = useWindowDimensions().width;
+
+  const cardWidth = screenWidth * 0.44; // 40% of the screen width
+  const cardHeight = cardWidth * 1.36; // maintaining the aspect ratio based on original dimensions
 
   const handleSearch = () => {
     console.log("te");
   };
 
+  const SOCIAL_DATA = [
+    {
+      name: "user name",
+      icon: ICONS?.NFTS1Img,
+    },
+
+    {
+      name: "user name",
+      icon: ICONS?.NFTS1Img,
+    },
+
+    {
+      name: "user name",
+      icon: ICONS?.NFTS1Img,
+    },
+
+    {
+      name: "user name",
+      icon: ICONS?.NFTS1Img,
+    },
+
+    {
+      name: "user name",
+      icon: ICONS?.NFTS1Img,
+    },
+  ];
+
+  const InfoCard = ({
+    title,
+    headers,
+    data,
+    renderData,
+    cardWidth,
+    cardHeight,
+  }) => {
+    console.log("cardWidth: ", cardWidth);
+    return (
+      <BlurView
+        style={[style.card, { width: cardWidth, height: cardHeight }]}
+        blurType="light"
+        blurAmount={10}
+      >
+        <View style={style.cardContent}>
+          <Text style={style.title}>{title}</Text>
+          <View style={style.headerRow}>
+            {headers.map((header, idx) => (
+              <Text key={idx} style={style.text}>
+                {header}
+              </Text>
+            ))}
+          </View>
+          {data?.map((d, idx) => (
+            <View key={idx} style={style.dataRow}>
+              {renderData(d)}
+            </View>
+          ))}
+        </View>
+      </BlurView>
+    );
+  };
+
   return (
     <ScrollView style={{ flexGrow: 1 }}>
       <Header onSearch={handleSearch} />
+
+      <View className="px-3 py-2">
+        <ScrollView
+          horizontal={true}
+          contentContainerStyle={{ paddingHorizontal: 10 }}
+        >
+          {SOCIAL_DATA?.map((item, idx) => (
+            <View
+              key={idx}
+              style={{ alignItems: "center", marginLeft: 1, marginRight: 10 }}
+            >
+              <View className="h-16 w-16 rounded-full overflow-hidden mb-2">
+                <Image
+                  source={ICONS?.NFTS1Img}
+                  className="h-16 w-16 "
+                  resizeMode="contain"
+                />
+              </View>
+              <Text className="text-white w-20 text-center text-sm">
+                {item.name}
+              </Text>
+            </View>
+          ))}
+        </ScrollView>
+      </View>
       <View style={{ flex: 1 }}>
         <TouchableOpacity
           onPress={() => {
@@ -72,59 +163,55 @@ const DashboardPage = ({ navigation }) => {
             industry and typesetting industry.
           </MarqueeText>
         </View>
-        <View className="px-3">
-          <View className="flex-row justify-center items-center mt-4">
-            <View className="flex-row justify-between items-center gap-2">
-              <View className="h-60 w-44 bg-slate-500 rounded">
-                <View className="p-3">
-                  <Text className="font-bold text-center text-white">
-                    Amounts
-                  </Text>
-                  <View className="flex-row justify-between items-center mt-3">
-                    <Text className="text-white text-xs">Investment</Text>
-                    <Text className="text-white text-xs">Current Values</Text>
-                  </View>
-                  {AMOUNTS_LIST?.map((d, idx) => (
-                    <View
-                      className="flex-row justify-between items-center mt-3"
-                      key={idx}
-                    >
-                      <Text className="text-white text-xs">
-                        {d?.investmentAmount}
-                      </Text>
-                      <Text className="text-white text-xs">
-                        {d?.currentValue}
-                      </Text>
-                    </View>
-                  ))}
-                </View>
-              </View>
-              <View className="h-60  w-44 bg-slate-500 rounded">
-                <View className="p-3">
-                  <Text className="font-bold text-center text-white">Time</Text>
-                  <View className="flex-row justify-between items-center mt-3">
-                    <Text className="text-white text-xs">Investment</Text>
-                    <Text className="text-white text-xs">Purchase</Text>
-                  </View>
-                  {AMOUNTS_LIST?.map((d, idx) => (
-                    <View
-                      className="flex-row justify-between items-center mt-3"
-                      key={idx}
-                    >
-                      <Text className="text-white text-xs">
-                        {d?.investmentAmount}
-                      </Text>
-                      <Text className="text-white text-xs">
-                        {moment(d?.date).format("L")}
-                      </Text>
-                    </View>
-                  ))}
-                </View>
-              </View>
+        <View className="px-3 w-full">
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: 16,
+            }}
+          >
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+                gap: 8,
+              }}
+            >
+              <InfoCard
+                title="Amounts"
+                headers={["Investment", "Current Values"]}
+                data={AMOUNTS_LIST}
+                renderData={(d) => (
+                  <>
+                    <Text style={style.text}>{d?.investmentAmount}</Text>
+                    <Text style={style.text}>{d?.currentValue}</Text>
+                  </>
+                )}
+                cardWidth={cardWidth}
+                // cardHeight={cardHeight}
+              />
+              <InfoCard
+                title="Time"
+                headers={["Investment", "Purchase"]}
+                data={AMOUNTS_LIST}
+                renderData={(d) => (
+                  <>
+                    <Text style={style.text}>{d?.investmentAmount}</Text>
+                    <Text style={style.text}>
+                      {moment(d?.date).format("L")}
+                    </Text>
+                  </>
+                )}
+                cardWidth={cardWidth}
+                // cardHeight={cardHeight}
+              />
             </View>
           </View>
 
-          <DataTable className="rounded bg-slate-500 my-3">
+          <DataTable className="rounded  my-3">
             <DataTable.Header className="text-white">
               <DataTable.Title>
                 <Text className="text-white font-bold text-center">Pair</Text>
@@ -184,24 +271,37 @@ const DashboardPage = ({ navigation }) => {
               onPress={() => {
                 navigation.navigate("Portfolio");
               }}
-              className="h-36 w-44 inline bg-slate-500 rounded-lg "
             >
-              <View className="flex justify-center items-center my-auto">
-                <Animatable.Text
-                  animation="pulse"
-                  easing="ease-out"
-                  iterationCount="infinite"
-                  className="mb-3 border rounded-xl border-white p-2"
-                >
-                  <MaterialIcons name="groups-2" size={30} color="white" />
-                </Animatable.Text>
-                <Text className="font-bold text-white text-md">
-                  Highest Rated Funds
-                </Text>
-              </View>
+              <BlurView
+                className="h-36 w-44 inline  rounded-lg "
+                intensity={100}
+                blurType="light"
+                blurAmount={20}
+                style={{ overflow: "hidden" }}
+              >
+                {/* Test */}
+                <View className="flex justify-center items-center my-auto">
+                  <Animatable.Text
+                    animation="pulse"
+                    easing="ease-out"
+                    iterationCount="infinite"
+                    className="mb-3 border rounded-xl border-white p-2"
+                  >
+                    <MaterialIcons name="groups-2" size={30} color="white" />
+                  </Animatable.Text>
+                  <Text className="font-bold text-white text-md">
+                    Highest Rated Funds
+                  </Text>
+                </View>
+              </BlurView>
             </TouchableOpacity>
-
-            <View className="h-36 w-44 inline bg-slate-500 rounded-lg ">
+            <BlurView
+              className="h-36 w-44  rounded-lg "
+              intensity={100}
+              blurType="light"
+              blurAmount={20}
+              style={{ overflow: "hidden" }}
+            >
               <View className="flex justify-center items-center my-auto">
                 <Animatable.Text
                   animation="pulse"
@@ -215,10 +315,16 @@ const DashboardPage = ({ navigation }) => {
                   Highest Rated Funds
                 </Text>
               </View>
-            </View>
+            </BlurView>
           </View>
           <View className=" flex-row   gap-2 items-center mt-1">
-            <View className="h-36 w-44 inline bg-slate-500 rounded-lg ">
+            <BlurView
+              className="h-36 w-44  rounded-lg "
+              intensity={100}
+              blurType="light"
+              blurAmount={20}
+              style={{ overflow: "hidden" }}
+            >
               <View className="flex justify-center items-center my-auto">
                 <Animatable.Text
                   animation="pulse"
@@ -236,8 +342,14 @@ const DashboardPage = ({ navigation }) => {
                   Highest Rated Funds
                 </Text>
               </View>
-            </View>
-            <View className="h-36 w-44 inline bg-slate-500 rounded-lg ">
+            </BlurView>
+            <BlurView
+              className="h-36 w-44  rounded-lg "
+              intensity={100}
+              blurType="light"
+              blurAmount={20}
+              style={{ overflow: "hidden" }}
+            >
               <View className="flex justify-center items-center my-auto">
                 <Animatable.Text
                   animation="pulse"
@@ -251,7 +363,7 @@ const DashboardPage = ({ navigation }) => {
                   MO Recommended
                 </Text>
               </View>
-            </View>
+            </BlurView>
           </View>
         </View>
         {/* portfolio end */}
@@ -277,7 +389,14 @@ const DashboardPage = ({ navigation }) => {
             />
           </View>
           {TRANDS_DATA?.map((d, idx) => (
-            <View className="h-24 bg-slate-500 rounded-lg mt-2" key={idx}>
+            <BlurView
+              className="h-24 rounded-lg mt-2"
+              key={idx}
+              intensity={100}
+              blurType="light"
+              blurAmount={20}
+              style={{ overflow: "hidden" }}
+            >
               <View className="flex-row justify-between items-center my-2 px-2">
                 <View className="flex-row justify-center items-center gap-1 w-52 mt-1">
                   <View className="h-8 w-8 bg-slate-800 rounded-2xl flex-row justify-center items-center">
@@ -291,16 +410,16 @@ const DashboardPage = ({ navigation }) => {
                   </Text>
                 </View>
                 <View className="flex-row items-center justify-center ">
-                  <Text className="text-yellow-200 font-semibold text-sm">
+                  <Text className="text-yellow-200 font-semibold text-xs">
                     {d?.btn}
-                    <AntDesign name="right" size={17} color="yellow" />
+                    <AntDesign name="right" size={12} color="yellow" />
                   </Text>
                 </View>
               </View>
               <Text className="text-gray-300 font-semibold text-xs px-2 py-2">
                 {d?.openAnClose}
               </Text>
-            </View>
+            </BlurView>
           ))}
         </View>
         {/* market trands end */}
@@ -329,7 +448,13 @@ const DashboardPage = ({ navigation }) => {
             horizontal={true}
             className="flex-row grid-cols-2 grid-rows-2 gap-4"
           >
-            <View className="h-44 w-40  bg-slate-500 rounded-lg ">
+            <BlurView
+              className="h-44 w-40   rounded-lg "
+              intensity={100}
+              blurType="light"
+              blurAmount={20}
+              style={{ overflow: "hidden" }}
+            >
               <View className="flex justify-center items-center my-auto">
                 <Animatable.Text
                   animation="pulse"
@@ -343,9 +468,15 @@ const DashboardPage = ({ navigation }) => {
                   health insurance
                 </Text>
               </View>
-            </View>
+            </BlurView>
 
-            <View className="h-44 w-40  bg-slate-500 rounded-lg ">
+            <BlurView
+              className="h-44 w-40   rounded-lg "
+              intensity={100}
+              blurType="light"
+              blurAmount={20}
+              style={{ overflow: "hidden" }}
+            >
               <View className="flex justify-center items-center my-auto">
                 <Animatable.Text
                   animation="pulse"
@@ -363,9 +494,14 @@ const DashboardPage = ({ navigation }) => {
                   health insurance
                 </Text>
               </View>
-            </View>
-
-            <View className="h-44 w-40  bg-slate-500 rounded-lg ">
+            </BlurView>
+            <BlurView
+              className="h-44 w-40   rounded-lg "
+              intensity={100}
+              blurType="light"
+              blurAmount={20}
+              style={{ overflow: "hidden" }}
+            >
               <View className="flex justify-center items-center my-auto">
                 <Animatable.Text
                   animation="pulse"
@@ -379,7 +515,7 @@ const DashboardPage = ({ navigation }) => {
                   health insurance
                 </Text>
               </View>
-            </View>
+            </BlurView>
           </ScrollView>
         </View>
 
@@ -405,9 +541,13 @@ const DashboardPage = ({ navigation }) => {
           </View>
           <ScrollView className="flex-row  gap-4 h-52" horizontal={true}>
             {INVEST_BEST_DATA?.map((d, idx) => (
-              <View
+              <BlurView
+                className="h-40 w-28   rounded-lg relative "
+                intensity={100}
+                blurType="light"
+                blurAmount={20}
+                // style={{ overflow: "hidden" }}
                 key={idx}
-                className="h-40 w-28  bg-slate-500 rounded-lg relative"
               >
                 <View className="flex justify-center items-center my-auto ">
                   <Animatable.Text
@@ -436,7 +576,7 @@ const DashboardPage = ({ navigation }) => {
                     </Animatable.Text>
                   </View>
                 </View>
-              </View>
+              </BlurView>
             ))}
           </ScrollView>
         </View>
@@ -512,15 +652,47 @@ const DashboardPage = ({ navigation }) => {
   );
 };
 
-const style = StyleSheet.create({
+const style = {
   marqueeMainContainer: {
     fontSize: 24,
     color: "#fff",
     height: 60,
     backgroundColor: "#08130D",
+
     textAlign: "center",
     lineHeight: 60,
   },
-});
+
+  card: {
+    borderRadius: 8,
+    marginHorizontal: 8,
+    overflow: "hidden",
+    elevation: 12,
+  },
+  cardContent: {
+    padding: 12,
+  },
+  title: {
+    fontWeight: "bold",
+    textAlign: "center",
+    color: "#fff",
+  },
+  headerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: 12,
+  },
+  dataRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: 12,
+  },
+  text: {
+    color: "#fff",
+    fontSize: 12,
+  },
+};
 
 export default GradientHOC(DashboardPage);
