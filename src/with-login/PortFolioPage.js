@@ -6,6 +6,7 @@ import moment from "moment";
 import { AntDesign } from "@expo/vector-icons";
 
 import * as Animatable from "react-native-animatable";
+import { BlurView } from "expo-blur";
 const PortFolioPage = () => {
   const handleSearch = () => {};
 
@@ -57,9 +58,12 @@ const PortFolioPage = () => {
         <Header onSearch={handleSearch} />
 
         <View className="px-3 py-3">
-          <View
-            className="h-44 bg-slate-500 rounded-md"
-            style={{ elevation: 8 }}
+          <BlurView
+            className="h-44  rounded-md"
+            intensity={100}
+            blurType="light"
+            blurAmount={20}
+            style={{ elevation: 8, overflow: "hidden" }}
           >
             <View className="p-3">
               <View className="flex-row justify-between items-center">
@@ -108,7 +112,7 @@ const PortFolioPage = () => {
                 </View>
               </View>
             </View>
-          </View>
+          </BlurView>
         </View>
 
         <ScrollView
@@ -116,24 +120,35 @@ const PortFolioPage = () => {
           className="px-2 py-2 flex-row gap-2 w-full"
         >
           {EQUITY_DATA?.map((d, idx) => (
-            <View
+            <BlurView
+              intensity={100}
+              blurType="light"
+              blurAmount={20}
               key={idx}
-              style={{ borderLeftColor: d?.color, borderLeftWidth: 6 }}
-              className=" w-36 bg-slate-500 rounded  h-14 px-2 pt-1  flex-row"
+              style={{
+                borderLeftColor: d?.color,
+                borderLeftWidth: 6,
+                overflow: "hidden",
+              }}
+              className=" w-36  rounded  h-14 px-2 pt-1  flex-row"
             >
               <View className="grid gap-1">
                 <Text className="text-white text-md">{d?.name}</Text>
                 <Text className="text-white text-md">{d?.value} %</Text>
               </View>
-            </View>
+            </BlurView>
           ))}
         </ScrollView>
 
         <View className="px-3 pt-3">
           {/* equity */}
-          <View
-            className="h-48 bg-slate-500 rounded-md my-2"
-            style={{ elevation: 8 }}
+
+          <BlurView
+            intensity={100}
+            blurType="light"
+            blurAmount={20}
+            className="h-48 rounded-md my-2"
+            style={{ elevation: 8, overflow: "hidden" }}
           >
             <View className="p-3">
               <View className="flex-row justify-between items-center ">
@@ -202,11 +217,15 @@ const PortFolioPage = () => {
                 </View>
               </View>
             </View>
-          </View>
+          </BlurView>
           {/* us stocks */}
-          <View
-            className="h-48 bg-slate-500 rounded-md mt-2 mb-6"
-            style={{ elevation: 8 }}
+
+          <BlurView
+            intensity={100}
+            blurType="light"
+            blurAmount={20}
+            className="h-48  rounded-md mt-2 mb-6"
+            style={{ elevation: 8, overflow: "hidden" }}
           >
             <View className="p-3">
               <View className="flex-row justify-between items-center ">
@@ -275,7 +294,7 @@ const PortFolioPage = () => {
                 </View>
               </View>
             </View>
-          </View>
+          </BlurView>
         </View>
 
         <View className="px-3 mb-24 ">
@@ -288,9 +307,12 @@ const PortFolioPage = () => {
             </Text>
           </View>
 
-          <View
-            className="h-32 bg-slate-500 rounded-md  mb-6"
-            style={{ elevation: 8 }}
+          <BlurView
+            intensity={100}
+            blurType="light"
+            blurAmount={20}
+            className="h-32  rounded-md  mb-6"
+            style={{ elevation: 8, overflow: "hidden" }}
           >
             <View className="p-3">
               <View className="flex-row justify-between pt-3 items-center">
@@ -322,7 +344,7 @@ const PortFolioPage = () => {
                 </View>
               </View>
             </View>
-          </View>
+          </BlurView>
         </View>
       </View>
     </ScrollView>
