@@ -151,7 +151,7 @@ const DashboardPage = ({ navigation }) => {
           />
         </TouchableOpacity>
 
-        <View className="w-full mt-4">
+        <View className="w-full py-4">
           <MarqueeText
             style={style.marqueeMainContainer}
             speed={1}
@@ -162,7 +162,7 @@ const DashboardPage = ({ navigation }) => {
             industry and typesetting industry.
           </MarqueeText>
         </View>
-        <View className="px-3 w-full">
+        <View className="px-3 py-4 w-full">
           <View
             style={{
               flexDirection: "row",
