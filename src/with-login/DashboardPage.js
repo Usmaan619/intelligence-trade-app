@@ -80,7 +80,6 @@ const DashboardPage = ({ navigation }) => {
     cardWidth,
     cardHeight,
   }) => {
-    console.log("cardWidth: ", cardWidth);
     return (
       <BlurView
         style={[style.card, { width: cardWidth, height: cardHeight }]}
@@ -139,7 +138,7 @@ const DashboardPage = ({ navigation }) => {
           onPress={() => {
             navigation.navigate("Portfolio");
           }}
-          className="h-56 w-full flex justify-center  rounded"
+          className="h-56 w-full flex justify-center  rounded py-4"
         >
           <ProgressChart
             data={PIE_CHART}
@@ -616,9 +615,12 @@ const DashboardPage = ({ navigation }) => {
 
           <View className="flex gap-3 items-center mb-14">
             {NEWS_DATA?.map((d, idx) => (
-              <View
+              <BlurView
+                className="h-32 w-full  rounded-lg"
                 key={idx}
-                className="h-32 w-full bg-slate-500 rounded-lg"
+                intensity={100}
+                blurType="light"
+                blurAmount={20}
                 style={{ elevation: 8, overflow: "hidden" }}
               >
                 <View className="flex-row justify-between">
@@ -642,7 +644,7 @@ const DashboardPage = ({ navigation }) => {
                 >
                   {moment().format("LLL")}
                 </Text>
-              </View>
+              </BlurView>
             ))}
           </View>
         </View>
