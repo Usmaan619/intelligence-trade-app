@@ -24,6 +24,7 @@ export const GradientHOC = (Component) => {
           networkActivityIndicatorVisible={true}
           translucent={true}
           backgroundColor="#000"
+          style="auto"
         />
 
         <Image

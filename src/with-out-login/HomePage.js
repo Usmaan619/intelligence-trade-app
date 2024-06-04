@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import {
   View,
@@ -15,18 +13,28 @@ import { BlurView } from "expo-blur";
 import { LinearGradient } from "expo-linear-gradient";
 import { createShimmerPlaceholder } from "react-native-shimmer-placeholder";
 import Carousel, { PaginationLight } from "react-native-x-carousel";
-import { ARBITRATION_LIST, ICONS, LINE_CHART_CONFIG, LINE_CHART_CONFIG_GREEN, LINE_CHART_DATA, LINE_CHART_DATA_GREEN, LINE_CHART_DATA_RED, LIVE_MARKET_LIST, OUR_FEATURES } from "../constants/Contant";
+import {
+  ARBITRATION_LIST,
+  ICONS,
+  LINE_CHART_CONFIG,
+  LINE_CHART_CONFIG_GREEN,
+  LINE_CHART_DATA,
+  LINE_CHART_DATA_GREEN,
+  LINE_CHART_DATA_RED,
+  LIVE_MARKET_LIST,
+  OUR_FEATURES,
+} from "../constants/Contant";
 import { stocksStyle } from "../styles/stocksStyle";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { DataTable } from 'react-native-paper';
-import { FontAwesome } from '@expo/vector-icons';
-import { AntDesign } from '@expo/vector-icons';
+import { DataTable } from "react-native-paper";
+import { FontAwesome } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 import Modal from "react-native-modal";
 import { LineChart } from "react-native-chart-kit";
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons } from "@expo/vector-icons";
 import { GradientHOC } from "../HOC/Gradient.hoc";
 const ShimmerPlaceholder = createShimmerPlaceholder(LinearGradient);
 const screenWidth = Dimensions.get("window").width;
@@ -35,7 +43,7 @@ const HomePage = ({ navigation }) => {
   const [isShowShimmerLoader, setIsShowShimmerLoader] = useState(false);
   const [isDisableBuyAnSellBtn, setIsDisableBuyAnSellBtn] = useState(false);
   const [isCarouselPage, setIsCarouselPage] = useState("");
-  const [isVisibleChart, setVisibleChart] = useState('green');
+  const [isVisibleChart, setVisibleChart] = useState("green");
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -51,7 +59,6 @@ const HomePage = ({ navigation }) => {
       // downImg: ICONS.downArrowImgImg,
       upImg: ICONS.upArrowImg,
     },
-
 
     {
       name: "Members",
@@ -95,8 +102,6 @@ const HomePage = ({ navigation }) => {
     },
   ];
 
-
-
   setTimeout(() => {
     setIsShowShimmerLoader(true);
   }, 2000);
@@ -127,9 +132,8 @@ const HomePage = ({ navigation }) => {
     }
   };
 
-
   const renderItem = (data) => (
-    <BlurView key={data?.idx} intensity={90} style={styles.subTitle}>
+    <BlurView key={data?.idx} style={styles.subTitle}>
       <Image
         source={data?.bannerImg}
         style={{ width: "100%", objectFit: "fill", height: hp("20%") }}
@@ -145,9 +149,7 @@ const HomePage = ({ navigation }) => {
   return (
     <ScrollView>
       <Header onSearch={handleSearch} />
-      <View
-        className='flex-row justify-center'
-      >
+      <View className="flex-row justify-center">
         <Carousel
           loop={true}
           pagination={PaginationLight}
@@ -169,8 +171,8 @@ const HomePage = ({ navigation }) => {
             }}
           >
             <BlurView
+              blurAmount={0.5}
               style={{
-                backgroundColor: "#fff",
                 height: 80,
                 width: 150,
                 borderRadius: 12,
@@ -220,10 +222,13 @@ const HomePage = ({ navigation }) => {
                   right: 0,
                 }}
               >
-                <Text style={{ fontSize: 11, fontWeight: "500" }}>
+                <Text
+                  style={{ fontSize: 11, fontWeight: "500" }}
+                  className="text-white"
+                >
                   {data?.count}
                 </Text>
-                <Text style={{ fontSize: 10, color: "grey" }}>
+                <Text style={{ fontSize: 10 }} className="text-white">
                   {data?.name}
                 </Text>
               </View>
@@ -375,7 +380,6 @@ const HomePage = ({ navigation }) => {
             </View>
             {/* hathway */}
             <View
-
               style={{
                 flexDirection: "row",
                 padding: 10,
@@ -400,7 +404,7 @@ const HomePage = ({ navigation }) => {
                 </Text>
               </View>
 
-              <View >
+              <View>
                 <Text style={{ fontSize: 12, fontWeight: "700" }}>$27.04 </Text>
                 <Text
                   style={{ fontSize: 10, color: "#38B000", textAlign: "right" }}
@@ -413,73 +417,65 @@ const HomePage = ({ navigation }) => {
         </View>
 
         {/* table */}
-        <View className='px-3'>
-          <View className='flex-row items-center gap-2 justify-center'>
+        <View className="px-3">
+          <View className="flex-row items-center gap-2 justify-center">
             <AntDesign name="doubleleft" size={20} color="blue" />
 
-            <Text className='text-lg  text-black font-bold  py-5'>
+            <Text className="text-lg  text-black font-bold  py-5">
               Arbitration deals
             </Text>
             <AntDesign name="doubleright" size={20} color="blue" />
-
-
           </View>
-          <DataTable className='rounded bg-slate-100'>
-            <DataTable.Header className='text-white'>
-              <DataTable.Title >
-                <Text className='text-black font-bold text-center'>
-                  Pair
-                </Text>
+          <DataTable className="rounded bg-slate-100">
+            <DataTable.Header className="text-white">
+              <DataTable.Title>
+                <Text className="text-black font-bold text-center">Pair</Text>
               </DataTable.Title>
-              <DataTable.Title >
-                <Text className='text-black font-bold text-center'>
+              <DataTable.Title>
+                <Text className="text-black font-bold text-center">
                   Buying Price
                 </Text>
-
               </DataTable.Title>
-              <DataTable.Title >
-                <Text className='text-black font-bold text-center'>
+              <DataTable.Title>
+                <Text className="text-black font-bold text-center">
                   Selling Price
                 </Text>
               </DataTable.Title>
             </DataTable.Header>
 
             {ARBITRATION_LIST?.map((d, idx) => (
-              <DataTable.Row key={idx} style={{ width: '100%' }} onPress={toggleModal}>
-                <DataTable.Cell >
-                  <View className='flex-row items-center  gap-1 me-10 w-full'>
-
+              <DataTable.Row
+                key={idx}
+                style={{ width: "100%" }}
+                onPress={toggleModal}
+              >
+                <DataTable.Cell>
+                  <View className="flex-row items-center  gap-1 me-10 w-full">
                     <FontAwesome name="bitcoin" size={15} color="#e5f13e" />
-                    <Text className='text-black font-bold text-center '>
+                    <Text className="text-black font-bold text-center ">
                       {d?.name}
                     </Text>
                   </View>
                 </DataTable.Cell>
                 <DataTable.Cell>
-
-                  <View className='flex-row  items-center justify-center gap-1 w-full text-center'>
-
+                  <View className="flex-row  items-center justify-center gap-1 w-full text-center">
                     <FontAwesome name="dollar" size={15} color="green" />
 
-                    <Text className='text-black font-bold text-left '>
+                    <Text className="text-black font-bold text-left ">
                       {d?.buyingPrice}
                     </Text>
                   </View>
-
                 </DataTable.Cell>
                 <DataTable.Cell>
-                  <View className='flex-row items-center justify-center  gap-1'>
+                  <View className="flex-row items-center justify-center  gap-1">
                     <FontAwesome name="dollar" size={15} color="red" />
-                    <Text className='text-black font-bold text-center '>
+                    <Text className="text-black font-bold text-center ">
                       {d?.sellingPrice}
                     </Text>
                   </View>
                 </DataTable.Cell>
               </DataTable.Row>
             ))}
-
-
-
           </DataTable>
           {/* table end */}
         </View>
@@ -489,37 +485,41 @@ const HomePage = ({ navigation }) => {
       {/* Modal start */}
 
       <View style={{ flex: 1 }}>
-        <Modal className='bg-white rounded-xl' isVisible={isModalVisible} animationIn='jello'
+        <Modal
+          className="bg-white rounded-xl"
+          isVisible={isModalVisible}
+          animationIn="jello"
           onBackdropPress={toggleModal}
         >
-          <ScrollView style={{ flex: 1 }} >
-            <View className='px-4 pt-3'>
-
-
-              <Text className='text-sm font-bold p-1'>Live Market Snapshot</Text>
+          <ScrollView style={{ flex: 1 }}>
+            <View className="px-4 pt-3">
+              <Text className="text-sm font-bold p-1">
+                Live Market Snapshot
+              </Text>
               {LIVE_MARKET_LIST?.map((d, idx) => (
-
-                <View className='py-3' key={idx}>
-                  <View className='flex-row justify-between'>
-                    <Text className='text-xs text-grey'>{d?.todayOpen}</Text>
-                    <Text className='text-xs text-grey'>{d?.todayClose}</Text>
+                <View className="py-3" key={idx}>
+                  <View className="flex-row justify-between">
+                    <Text className="text-xs text-grey">{d?.todayOpen}</Text>
+                    <Text className="text-xs text-grey">{d?.todayClose}</Text>
                   </View>
 
-                  <View className='flex-row justify-between py-2'>
-                    <Text className='text-sm text-grey'>{d?.lowPrice}</Text>
-                    <Text className='text-sm text-grey'>{d?.highPrice}</Text>
+                  <View className="flex-row justify-between py-2">
+                    <Text className="text-sm text-grey">{d?.lowPrice}</Text>
+                    <Text className="text-sm text-grey">{d?.highPrice}</Text>
                   </View>
                 </View>
               ))}
             </View>
 
             <React.Fragment>
-              <Text className='text-sm font-bold py-4 px-4' >Share PerFormance</Text>
-              {isVisibleChart === 'red' &&
+              <Text className="text-sm font-bold py-4 px-4">
+                Share PerFormance
+              </Text>
+              {isVisibleChart === "red" && (
                 <LineChart
                   data={LINE_CHART_DATA_RED}
                   height={220}
-                  width={Dimensions.get('window').width - 19}
+                  width={Dimensions.get("window").width - 19}
                   chartConfig={LINE_CHART_CONFIG}
                   bezier
                   segments={5}
@@ -527,14 +527,13 @@ const HomePage = ({ navigation }) => {
                   withHorizontalLines={false}
                   withVerticalLabels={false}
                   withHorizontalLabels={false}
-
                 />
-              }
-              {isVisibleChart === 'green' &&
+              )}
+              {isVisibleChart === "green" && (
                 <LineChart
                   data={LINE_CHART_DATA_GREEN}
                   height={220}
-                  width={Dimensions.get('window').width - 19}
+                  width={Dimensions.get("window").width - 19}
                   chartConfig={LINE_CHART_CONFIG_GREEN}
                   bezier
                   segments={5}
@@ -542,7 +541,7 @@ const HomePage = ({ navigation }) => {
                   withHorizontalLines={false}
                   withHorizontalLabels={false}
                 />
-              }
+              )}
             </React.Fragment>
           </ScrollView>
         </Modal>
@@ -550,28 +549,28 @@ const HomePage = ({ navigation }) => {
 
       {/* Modal end */}
 
-
-      <View className='px-3 pb-6 bg-white'>
-        <View className='flex-row items-center gap-2 justify-center'>
+      <View className="px-3 pb-6 bg-white">
+        <View className="flex-row items-center gap-2 justify-center">
           <AntDesign name="doubleleft" size={20} color="blue" />
 
-          <Text className='text-lg  text-black font-bold  py-5'>
+          <Text className="text-lg  text-black font-bold  py-5">
             Our features
           </Text>
           <AntDesign name="doubleright" size={20} color="blue" />
         </View>
-        {OUR_FEATURES?.map((d, idx) =>
-          <View key={idx} className='h-36 bg-slate-100 rounded-xl p-3 border-2 border-indigo-500 mb-5'>
-            <View className='h-9 w-9  border-2 border-indigo-500 flex-row justify-center items-center rounded-3xl'>
+        {OUR_FEATURES?.map((d, idx) => (
+          <View
+            key={idx}
+            className="h-36 bg-slate-100 rounded-xl p-3 border-2 border-indigo-500 mb-5"
+          >
+            <View className="h-9 w-9  border-2 border-indigo-500 flex-row justify-center items-center rounded-3xl">
               <MaterialIcons name={d?.icon} size={24} color="blue" />
             </View>
-            <Text className='text-center font-bold text-lg'>{d?.name}</Text>
-            <Text className='text-center  text-md'>{d?.Description}</Text>
+            <Text className="text-center font-bold text-lg">{d?.name}</Text>
+            <Text className="text-center  text-md">{d?.Description}</Text>
           </View>
-        )}
+        ))}
       </View>
-
-
     </ScrollView>
   );
 };

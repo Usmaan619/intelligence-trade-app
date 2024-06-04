@@ -37,9 +37,10 @@ const screenOptions = {
     left: 0,
     elevation: 0,
     height: 60,
-    background: "#FFFFFF",
+    // background: "#FFFFFF",
     unmountOnBlur: true,
     backgroundColor: "#0f0c29db",
+    // transparent
   },
 };
 

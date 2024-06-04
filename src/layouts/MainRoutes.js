@@ -23,8 +23,8 @@ const MainRoutes = () => {
         <Stack.Screen name="Dashboard" component={DashbordRoute} />
         <Stack.Screen name="DocumentVerif" component={DocumentVerifPage} />
         <Stack.Screen name="signIn" component={SignInPage} />
-        <Stack.Screen name="home" component={HomePage} />
         <Stack.Screen name="signUp" component={signUpPage} />
+        <Stack.Screen name="home" component={HomePage} />
 
         <Stack.Screen name="WelcomePage" component={WelcomePage} />
       </Stack.Navigator>

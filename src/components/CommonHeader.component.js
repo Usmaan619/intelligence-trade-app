@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     height: 100,
     // backgroundColor: "#000",
     alignItems: "center",
-    paddingTop: "8%",
+    paddingTop: "10%",
     paddingBottom: "6%",
     elevation: 5,
     paddingHorizontal: "3%",
