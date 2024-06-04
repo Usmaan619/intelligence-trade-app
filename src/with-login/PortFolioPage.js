@@ -60,10 +60,8 @@ const PortFolioPage = () => {
         <View className="px-3 py-3">
           <BlurView
             className="h-44  rounded-md"
-            intensity={100}
-            blurType="light"
-            blurAmount={20}
-            style={{ elevation: 8, overflow: "hidden" }}
+            blurAmount={0.5}
+            style={{ overflow: "hidden" }}
           >
             <View className="p-3">
               <View className="flex-row justify-between items-center">
@@ -123,7 +121,7 @@ const PortFolioPage = () => {
             <BlurView
               intensity={100}
               blurType="light"
-              blurAmount={20}
+              blurAmount={0.5}
               key={idx}
               style={{
                 borderLeftColor: d?.color,
@@ -144,11 +142,9 @@ const PortFolioPage = () => {
           {/* equity */}
 
           <BlurView
-            intensity={100}
-            blurType="light"
-            blurAmount={20}
+            blurAmount={0.5}
             className="h-48 rounded-md my-2"
-            style={{ elevation: 8, overflow: "hidden" }}
+            style={{ overflow: "hidden" }}
           >
             <View className="p-3">
               <View className="flex-row justify-between items-center ">
@@ -221,11 +217,9 @@ const PortFolioPage = () => {
           {/* us stocks */}
 
           <BlurView
-            intensity={100}
-            blurType="light"
-            blurAmount={20}
+            blurAmount={0.5}
             className="h-48  rounded-md mt-2 mb-6"
-            style={{ elevation: 8, overflow: "hidden" }}
+            style={{ overflow: "hidden" }}
           >
             <View className="p-3">
               <View className="flex-row justify-between items-center ">
@@ -308,11 +302,9 @@ const PortFolioPage = () => {
           </View>
 
           <BlurView
-            intensity={100}
-            blurType="light"
-            blurAmount={20}
+            blurAmount={0.5}
             className="h-32  rounded-md  mb-6"
-            style={{ elevation: 8, overflow: "hidden" }}
+            style={{ overflow: "hidden" }}
           >
             <View className="p-3">
               <View className="flex-row justify-between pt-3 items-center">

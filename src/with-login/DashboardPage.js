@@ -83,8 +83,7 @@ const DashboardPage = ({ navigation }) => {
     return (
       <BlurView
         style={[style.card, { width: cardWidth, height: cardHeight }]}
-        blurType="light"
-        blurAmount={10}
+        blurAmount={0.5}
       >
         <View style={style.cardContent}>
           <Text style={style.title}>{title}</Text>
@@ -210,7 +209,7 @@ const DashboardPage = ({ navigation }) => {
             </View>
           </View>
 
-          <DataTable className="rounded  my-3">
+          <DataTable className="rounded  mt-10">
             <DataTable.Header className="text-white">
               <DataTable.Title>
                 <Text className="text-white font-bold text-center">Pair</Text>
@@ -273,9 +272,7 @@ const DashboardPage = ({ navigation }) => {
             >
               <BlurView
                 className="h-36 w-44 inline  rounded-lg "
-                intensity={100}
-                blurType="light"
-                blurAmount={20}
+                blurAmount={0.5}
                 style={{ overflow: "hidden" }}
               >
                 {/* Test */}
@@ -296,9 +293,7 @@ const DashboardPage = ({ navigation }) => {
             </TouchableOpacity>
             <BlurView
               className="h-36 w-44  rounded-lg "
-              intensity={100}
-              blurType="light"
-              blurAmount={20}
+              blurAmount={0.5}
               style={{ overflow: "hidden" }}
             >
               <View className="flex justify-center items-center my-auto">
@@ -319,9 +314,7 @@ const DashboardPage = ({ navigation }) => {
           <View className=" flex-row   gap-2 items-center mt-1">
             <BlurView
               className="h-36 w-44  rounded-lg "
-              intensity={100}
-              blurType="light"
-              blurAmount={20}
+              blurAmount={0.5}
               style={{ overflow: "hidden" }}
             >
               <View className="flex justify-center items-center my-auto">
@@ -344,9 +337,7 @@ const DashboardPage = ({ navigation }) => {
             </BlurView>
             <BlurView
               className="h-36 w-44  rounded-lg "
-              intensity={100}
-              blurType="light"
-              blurAmount={20}
+              blurAmount={0.5}
               style={{ overflow: "hidden" }}
             >
               <View className="flex justify-center items-center my-auto">
@@ -391,9 +382,7 @@ const DashboardPage = ({ navigation }) => {
             <BlurView
               className="h-24 rounded-lg mt-2"
               key={idx}
-              intensity={100}
-              blurType="light"
-              blurAmount={20}
+              blurAmount={0.5}
               style={{ overflow: "hidden" }}
             >
               <View className="flex-row justify-between items-center my-2 px-2">
@@ -449,9 +438,7 @@ const DashboardPage = ({ navigation }) => {
           >
             <BlurView
               className="h-44 w-40   rounded-lg "
-              intensity={100}
-              blurType="light"
-              blurAmount={20}
+              blurAmount={0.5}
               style={{ overflow: "hidden" }}
             >
               <View className="flex justify-center items-center my-auto">
@@ -471,9 +458,7 @@ const DashboardPage = ({ navigation }) => {
 
             <BlurView
               className="h-44 w-40   rounded-lg "
-              intensity={100}
-              blurType="light"
-              blurAmount={20}
+              blurAmount={0.5}
               style={{ overflow: "hidden" }}
             >
               <View className="flex justify-center items-center my-auto">
@@ -496,9 +481,7 @@ const DashboardPage = ({ navigation }) => {
             </BlurView>
             <BlurView
               className="h-44 w-40   rounded-lg "
-              intensity={100}
-              blurType="light"
-              blurAmount={20}
+              blurAmount={0.5}
               style={{ overflow: "hidden" }}
             >
               <View className="flex justify-center items-center my-auto">
@@ -542,9 +525,7 @@ const DashboardPage = ({ navigation }) => {
             {INVEST_BEST_DATA?.map((d, idx) => (
               <BlurView
                 className="h-40 w-28   rounded-lg relative "
-                intensity={100}
-                blurType="light"
-                blurAmount={20}
+                blurAmount={0.5}
                 // style={{ overflow: "hidden" }}
                 key={idx}
               >
@@ -618,10 +599,10 @@ const DashboardPage = ({ navigation }) => {
               <BlurView
                 className="h-32 w-full  rounded-lg"
                 key={idx}
-                intensity={100}
-                blurType="light"
-                blurAmount={20}
-                style={{ elevation: 8, overflow: "hidden" }}
+                //
+                //
+                blurAmount={0.5}
+                style={{ overflow: "hidden" }}
               >
                 <View className="flex-row justify-between">
                   <Text

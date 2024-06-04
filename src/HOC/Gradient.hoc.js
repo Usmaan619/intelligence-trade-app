@@ -1,5 +1,6 @@
-import { StatusBar, StyleSheet } from "react-native";
+import { Image, StatusBar, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { ICONS } from "../constants/Contant";
 
 export const GradientHOC = (Component) => {
   const gradientProps = {
@@ -24,10 +25,11 @@ export const GradientHOC = (Component) => {
           translucent={true}
           backgroundColor="#000"
         />
-        <LinearGradient
-          colors={gradientProps.colors}
+
+        <Image
           style={styles.gradient}
-          end={{ x: 0.0, y: 0.9 }}
+          source={ICONS.bgImg}
+          resizeMode="contain"
         />
         <Component {...props} />
       </>
@@ -37,11 +39,17 @@ export const GradientHOC = (Component) => {
 
 const styles = StyleSheet.create({
   gradient: {
-    width: "100%",
-    height: "100%",
     position: "absolute",
     left: 0,
     right: 0,
     top: 0,
   },
 });
+
+{
+  /* <LinearGradient
+          colors={gradientProps.colors}
+          style={styles.gradient}
+          end={{ x: 0.0, y: 0.9 }}
+        /> */
+}

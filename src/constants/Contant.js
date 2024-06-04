@@ -111,6 +111,8 @@ export const ICONS = {
 
   portfolioImg: require("../../assets/png/portfolio.png"),
   stockImg: require("../../assets/png/stock-ticker.png"),
+
+  bgImg: require("../../assets/png/bg.png"),
 };
 
 export const constant = {
