@@ -19,8 +19,7 @@ import { GradientHOC } from "../HOC/Gradient.hoc";
 import { signUpValidationSchema } from "../utils/helper";
 import CommonButton from "../components/CommonButton";
 
-
-const SignUp = ({ navigation }) => {
+const SignUpPage = ({ navigation }) => {
   const [isShowPassword, setIsShowPassword] = useState(true);
   const [isShowPasswordConf, setIsShowPasswordConf] = useState(true);
 
@@ -37,8 +36,6 @@ const SignUp = ({ navigation }) => {
 
     navigation.navigate("DocumentVerif", { registerDetails: val });
   };
-
-
 
   return (
     <ScrollView>
@@ -65,10 +62,16 @@ const SignUp = ({ navigation }) => {
           formikFn = formikProps;
           return (
             <View style={styles.signUpcontainer}>
-              <View className='flex-row justify-center items-center'>
-                <Image source={ICONS?.intelligenceMainWhiteImg} resizeMode="cover" className='h-[90px] w-[170px] overflow-hidden' />
+              <View className="flex-row justify-center items-center">
+                <Image
+                  source={ICONS?.intelligenceMainWhiteImg}
+                  resizeMode="cover"
+                  className="h-[90px] w-[170px] overflow-hidden"
+                />
               </View>
-              <Text className="text-center  text-lg font-semibold text-white">Create New Account</Text>
+              <Text className="text-center  text-lg font-semibold text-white">
+                Create New Account
+              </Text>
 
               <View style={styles.signUpInputMainContainer}>
                 <SafeAreaView style={styles.signUpInputSubContainer}>
@@ -187,4 +190,4 @@ const SignUp = ({ navigation }) => {
 
 const styles = StyleSheet.create(authStyles);
 
-export default GradientHOC(SignUp);
+export default GradientHOC(SignUpPage);

@@ -165,7 +165,7 @@ const DashboardPage = ({ navigation }) => {
             style={style.marqueeMainContainer}
             speed={1}
             marqueeOnStart={true}
-            loop={true}
+            loop
           >
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry and typesetting industry.
