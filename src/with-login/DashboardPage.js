@@ -8,7 +8,7 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { GradientHOC } from "../HOC/Gradient.hoc";
 import Header from "../components/CommonHeader.component";
 import { PieChart, ProgressChart } from "react-native-chart-kit";
@@ -35,6 +35,8 @@ import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 import { LinearGradient } from "expo-linear-gradient";
+import { stockAPI, traddingAPI, portfolioAPI } from "../services/Auth.service";
+import { MAINCOLORS } from "../Common/Color";
 const DashboardPage = ({ navigation }) => {
   const screenWidth = useWindowDimensions().width;
 
@@ -44,6 +46,18 @@ const DashboardPage = ({ navigation }) => {
   const handleSearch = () => {
     console.log("te");
   };
+
+  useEffect(() => {
+    new Promise(async (resolve, reject) => {
+      try {
+        const res = await portfolioAPI();
+        console.log("res:portfolioAPI ", res);
+      } catch (error) {
+        console.log("error:portfolioAPI ", error);
+      }
+      resolve(1);
+    });
+  }, []);
 
   const SOCIAL_DATA = [
     {
@@ -90,10 +104,7 @@ const DashboardPage = ({ navigation }) => {
         style={[style.card, { width: cardWidth, height: cardHeight }]}
         blurAmount={0.5}
       >
-        <LinearGradient
-          colors={["#1A684B", "#1A684B"]}
-          end={{ x: 0.1, y: 0.9 }}
-        >
+        <BlurView blurAmount={0.5} style={{ overflow: "hidden" }}>
           <View style={style.cardContent}>
             <Text style={style.title}>{title}</Text>
             <View style={style.headerRow}>
@@ -109,7 +120,7 @@ const DashboardPage = ({ navigation }) => {
               </View>
             ))}
           </View>
-        </LinearGradient>
+        </BlurView>
       </BlurView>
     );
   };
@@ -118,7 +129,7 @@ const DashboardPage = ({ navigation }) => {
     <ScrollView style={{ flexGrow: 1 }}>
       <Header onSearch={handleSearch} />
 
-      <View className="px-3 py-2">
+      <View className="px-3 pt-28 pb-3">
         <ScrollView
           horizontal={true}
           contentContainerStyle={{ paddingHorizontal: 10 }}
@@ -280,17 +291,16 @@ const DashboardPage = ({ navigation }) => {
                 navigation.navigate("Portfolio");
               }}
             >
-              {/* <BlurView
-                className="h-36 w-44 inline  rounded-lg "
+              <BlurView
+                className="flex justify-center items-center my-auto h-36 w-44  rounded-lg"
                 blurAmount={0.5}
                 style={{ overflow: "hidden" }}
-              > */}
-              <LinearGradient
+              >
+                {/* <LinearGradient
                 colors={["#006548", "#079b07"]}
                 end={{ x: 0.1, y: 0.9 }}
                 className="flex justify-center items-center my-auto h-36 w-44   rounded-lg"
-              >
-                {/* Test */}
+              > */}
                 <Animatable.Text
                   animation="pulse"
                   easing="ease-out"
@@ -302,18 +312,13 @@ const DashboardPage = ({ navigation }) => {
                 <Text className="font-bold text-white text-md">
                   Highest Rated Funds
                 </Text>
-              </LinearGradient>
-              {/* </BlurView> */}
+                {/* </LinearGradient> */}
+              </BlurView>
             </TouchableOpacity>
-            {/* <BlurView
-              className="h-36 w-44  rounded-lg "
+            <BlurView
+              className="flex justify-center items-center my-auto h-36 w-44  rounded-lg"
               blurAmount={0.5}
               style={{ overflow: "hidden" }}
-            > */}
-            <LinearGradient
-              colors={["#006548", "#079b07"]}
-              end={{ x: 0.1, y: 0.9 }}
-              className="flex justify-center items-center my-auto h-36 w-44  rounded-lg"
             >
               <Animatable.Text
                 animation="pulse"
@@ -326,19 +331,13 @@ const DashboardPage = ({ navigation }) => {
               <Text className="font-bold text-white text-md">
                 Highest Rated Funds
               </Text>
-            </LinearGradient>
-            {/* </BlurView> */}
+            </BlurView>
           </View>
           <View className=" flex-row   gap-2 items-center mt-1">
-            {/* <BlurView
-              className="h-36 w-44  rounded-lg "
+            <BlurView
+              className="flex justify-center items-center my-auto h-36 w-44  rounded-lg"
               blurAmount={0.5}
               style={{ overflow: "hidden" }}
-            > */}
-            <LinearGradient
-              colors={["#006548", "#079b07"]}
-              end={{ x: 0.1, y: 0.9 }}
-              className="h-36 w-44  rounded-lg  flex justify-center items-center my-auto "
             >
               <Animatable.Text
                 animation="pulse"
@@ -355,17 +354,11 @@ const DashboardPage = ({ navigation }) => {
               <Text className="font-bold text-white text-md">
                 Highest Rated Funds
               </Text>
-            </LinearGradient>
-            {/* </BlurView> */}
-            {/* <BlurView
-              className="h-36 w-44  rounded-lg "
+            </BlurView>
+            <BlurView
+              className="flex justify-center items-center my-auto h-36 w-44  rounded-lg"
               blurAmount={0.5}
               style={{ overflow: "hidden" }}
-            > */}
-            <LinearGradient
-              colors={["#006548", "#079b07"]}
-              end={{ x: 0.1, y: 0.9 }}
-              className="h-36 w-44  rounded-lg flex justify-center items-center my-auto"
             >
               <Animatable.Text
                 animation="pulse"
@@ -378,8 +371,7 @@ const DashboardPage = ({ navigation }) => {
               <Text className="font-bold text-white text-md">
                 MO Recommended
               </Text>
-            </LinearGradient>
-            {/* </BlurView> */}
+            </BlurView>
           </View>
         </View>
         {/* portfolio end */}
@@ -391,10 +383,10 @@ const DashboardPage = ({ navigation }) => {
               <Text className="font-bold text-lg  text-white">
                 New Market trends
               </Text>
-              <Text className="font-medium text-sm text-gray-400">
+              <Text className="font-medium text-sm text-white">
                 Get early on a promising new
               </Text>
-              <Text className="font-medium text-xs text-gray-400">
+              <Text className="font-medium text-xs text-white">
                 investment funds opportunity
               </Text>
             </View>
@@ -444,10 +436,10 @@ const DashboardPage = ({ navigation }) => {
               <Text className="font-bold text-lg  text-white">
                 New Mutual Funds Offering(NFO)
               </Text>
-              <Text className="font-medium text-sm text-gray-400">
+              <Text className="font-medium text-sm text-white">
                 Get early on a promising new
               </Text>
-              <Text className="font-medium text-xs text-gray-400">
+              <Text className="font-medium text-xs text-white">
                 investment funds opportunity
               </Text>
             </View>
@@ -462,16 +454,10 @@ const DashboardPage = ({ navigation }) => {
             horizontal={true}
             className="flex-row grid-cols-2 grid-rows-2 gap-4"
           >
-            {/* <BlurView
-              className="h-44 w-40   rounded-lg "
+            <BlurView
+              className="flex justify-center items-center my-auto h-44 w-40   rounded-lg "
               blurAmount={0.5}
               style={{ overflow: "hidden" }}
-            > */}
-
-            <LinearGradient
-              colors={["#006548", "#079b07"]}
-              end={{ x: 0.1, y: 0.9 }}
-              className="flex justify-center items-center my-auto h-44 w-40   rounded-lg "
             >
               <Animatable.Text
                 animation="pulse"
@@ -484,13 +470,12 @@ const DashboardPage = ({ navigation }) => {
               <Text className="font-bold text-white text-md">
                 health insurance
               </Text>
-            </LinearGradient>
-            {/* </BlurView> */}
+            </BlurView>
 
-            <LinearGradient
-              colors={["#006548", "#079b07"]}
-              end={{ x: 0.1, y: 0.9 }}
+            <BlurView
               className="flex justify-center items-center my-auto h-44 w-40   rounded-lg "
+              blurAmount={0.5}
+              style={{ overflow: "hidden" }}
             >
               <Animatable.Text
                 animation="pulse"
@@ -507,11 +492,12 @@ const DashboardPage = ({ navigation }) => {
               <Text className="font-bold text-white text-md">
                 health insurance
               </Text>
-            </LinearGradient>
-            <LinearGradient
-              colors={["#006548", "#079b07"]}
-              end={{ x: 0.1, y: 0.9 }}
+            </BlurView>
+
+            <BlurView
               className="flex justify-center items-center my-auto h-44 w-40   rounded-lg "
+              blurAmount={0.5}
+              style={{ overflow: "hidden" }}
             >
               <Animatable.Text
                 animation="pulse"
@@ -524,7 +510,7 @@ const DashboardPage = ({ navigation }) => {
               <Text className="font-bold text-white text-md">
                 health insurance
               </Text>
-            </LinearGradient>
+            </BlurView>
           </ScrollView>
         </View>
 
@@ -535,10 +521,10 @@ const DashboardPage = ({ navigation }) => {
               <Text className="font-bold text-lg  text-white">
                 See How Best Invest
               </Text>
-              <Text className="font-medium text-sm text-gray-400">
+              <Text className="font-medium text-sm text-white">
                 Get access to the top investors Holdings,
               </Text>
-              <Text className="font-medium text-xs text-gray-400">
+              <Text className="font-medium text-xs text-white">
                 Net Worth and Company History.
               </Text>
             </View>
@@ -550,19 +536,13 @@ const DashboardPage = ({ navigation }) => {
           </View>
           <ScrollView className="flex-row  gap-4 h-52" horizontal={true}>
             {INVEST_BEST_DATA?.map((d, idx) => (
-              // <BlurView
-              //   className="h-40 w-28   rounded-lg relative "
-              //   blurAmount={0.5}
-              //   // style={{ overflow: "hidden" }}
-              //   key={idx}
-              // >
-              <LinearGradient
-                key={idx}
-                colors={["#006548", "#079b07"]}
-                end={{ x: 0.1, y: 0.9 }}
+              <BlurView
                 className="flex justify-center items-center my-auto h-40 w-28   rounded-lg relative"
+                blurAmount={0.5}
+                // style={{ overflow: "hidden" }}
+                key={idx}
               >
-                <View className="flex justify-center items-center my-auto">
+                <View className="flex justify-center items-center my-auto rounded-lg">
                   <Animatable.Text
                     animation="pulse"
                     easing="ease-in-out-expo"
@@ -589,7 +569,7 @@ const DashboardPage = ({ navigation }) => {
                     </Animatable.Text>
                   </View>
                 </View>
-              </LinearGradient>
+              </BlurView>
             ))}
           </ScrollView>
         </View>
@@ -600,10 +580,10 @@ const DashboardPage = ({ navigation }) => {
           <View className="flex-row justify-between items-center mt-3 mb-10">
             <View>
               <Text className="font-bold text-lg  text-white">News</Text>
-              <Text className="font-medium text-sm text-gray-400">
+              <Text className="font-medium text-sm text-white">
                 Stays informed with the latest news
               </Text>
-              <Text className="font-medium text-xs text-gray-400">
+              <Text className="font-medium text-xs text-white">
                 froms the financial market
               </Text>
             </View>
@@ -653,7 +633,7 @@ const DashboardPage = ({ navigation }) => {
                   </View>
                 </View>
                 <Text
-                  className="text-gray-300 font-semibold text-xs"
+                  className="text-white font-semibold text-xs"
                   style={{ paddingStart: 12 }}
                 >
                   {moment().format("LLL")}
@@ -673,7 +653,7 @@ const style = {
     fontSize: 24,
     color: "#fff",
     height: 60,
-    backgroundColor: "#08130D",
+    backgroundColor: MAINCOLORS?.primary,
 
     textAlign: "center",
     lineHeight: 60,
@@ -683,11 +663,12 @@ const style = {
     borderRadius: 8,
     marginHorizontal: 8,
     overflow: "hidden",
-    elevation: 12,
+    // elevation: 12,
     // backgroundColor: "#006548",
   },
   cardContent: {
     padding: 12,
+    // backgroundColor: MAINCOLORS?.primary,
   },
   title: {
     fontWeight: "bold",

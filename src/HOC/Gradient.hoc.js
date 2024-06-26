@@ -4,18 +4,8 @@ import { ICONS } from "../constants/Contant";
 
 export const GradientHOC = (Component) => {
   const gradientProps = {
-    colors: [
-      "#006548",
-      "#000",
-      "#000",
-      "#000",
-      "#000",
-      "#006548",
-      "#000",
-      "#000",
-    ],
+    colors: ["#737373", "#737373", "#00ccef"],
   };
-  // "#16142a",
 
   return (props) => {
     return (
@@ -26,13 +16,14 @@ export const GradientHOC = (Component) => {
           backgroundColor="#000"
           style="auto"
         />
-
-        <Image
+        <LinearGradient colors={gradientProps.colors} style={styles.gradient}>
+          <Component {...props} />
+        </LinearGradient>
+        {/* <Image
           style={styles.gradient}
           source={ICONS.bgImg}
           resizeMode="contain"
-        />
-        <Component {...props} />
+        /> */}
       </>
     );
   };
@@ -44,13 +35,6 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     top: 0,
+    height: "100%",
   },
 });
-
-{
-  /* <LinearGradient
-          colors={gradientProps.colors}
-          style={styles.gradient}
-          end={{ x: 0.0, y: 0.9 }}
-        /> */
-}

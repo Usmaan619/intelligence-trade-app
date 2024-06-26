@@ -332,11 +332,11 @@ export const PIE_CHART = {
 };
 
 export const PIE_CHART_CONFIG = {
-  backgroundGradientFrom: "#08130D",
-  backgroundGradientFromOpacity: 0.4,
-  backgroundGradientTo: "#1E2923",
+  // backgroundGradientFrom: "#08130D",
+  // backgroundGradientFromOpacity: 0.4,
+  // backgroundGradientTo: "#1E2923",
 
-  // backgroundGradientToOpacity: 0.5,
+  backgroundGradientToOpacity: 0.5,
   color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
   strokeWidth: 2, // optional, default 3
   barPercentage: 0.5,
@@ -490,5 +490,177 @@ export const NEWS_DATA = [
   {
     name: "Business Update",
     title: "Vita labs Standalone March 2024 Net sales at Rs 79.34",
+  },
+];
+
+export const data1 = [
+  {
+    Index: "Nifty 50",
+    Value: [
+      {
+        "Current price": "23,408.90 ",
+        percent: "+0.37%",
+        positive: "+90",
+        negative: "",
+        High: "23,408.05",
+        Low: "23,353.90",
+      },
+    ],
+  },
+  {
+    Index: "Sensex",
+    Value: [
+      {
+        "Current price": "76,798.78",
+        percent: "+0.25%",
+        positive: "+190.65",
+        negative: "",
+        High: "77,145.46",
+        Low: "76,719.70",
+      },
+    ],
+  },
+  {
+    Index: "Nifty Bank",
+    Value: [
+      {
+        "Current price": "49,846.70",
+        percent: "-0.10%",
+        positive: "",
+        negative: "-48.40",
+        High: "50,186.45",
+        Low: "49,799.65",
+      },
+    ],
+  },
+  {
+    US_Stocks: "Dow Jones",
+    Value: [
+      {
+        "Current price": "38,712.21",
+        percent: "-0.091%",
+        positive: "",
+        negative: "-35.21",
+        High: "38,750.50",
+        Low: "38,692.23",
+      },
+    ],
+  },
+  {
+    US_Stocks: "Nasdaq",
+    Value: [
+      {
+        "Current price": "17,608.44",
+        percent: "+1.53%",
+        positive: "+264.89",
+        negative: "",
+        High: "17,640.46",
+        Low: "17,589.36",
+      },
+    ],
+  },
+  {
+    Europe: "DAX",
+    Value: [
+      {
+        "Current price": "18,441.22",
+        percent: "-1.02%",
+        positive: "",
+        negative: "-190.42",
+        High: "18,600.52",
+        Low: "18,350.69",
+      },
+    ],
+  },
+  {
+    Europe: "FTSE 100",
+    Value: [
+      {
+        "Current price": "8,173.41",
+        percent: "-0.51%",
+        positive: "",
+        negative: "-42.40",
+        High: "8,200.32",
+        Low: "8,100.65",
+      },
+    ],
+  },
+  {
+    Currency: "USD/INR",
+    Value: [
+      {
+        "Current price": "83.5413",
+        percent: "+0.0080%",
+        positive: "+0.0067",
+        negative: "",
+        High: "83.5610",
+        Low: "83.4821",
+      },
+    ],
+  },
+  {
+    Currency: "EUR/INR",
+    Value: [
+      {
+        "Current price": "90.2675",
+        percent: "-0.060%",
+        positive: "",
+        negative: "-0.0539",
+        High: "90.3635",
+        Low: "90.2416",
+      },
+    ],
+  },
+  {
+    Crypto: "Bitcoin (BTC/INR)",
+    Value: [
+      {
+        "Current price": "5,622,416.63",
+        percent: "-1.38%",
+        positive: "",
+        negative: "-78,691.11",
+        High: "5,700,000.00",
+        Low: "5,620,000.68",
+      },
+    ],
+  },
+  {
+    Crypto: "Ether (ETH/INR)",
+    Value: [
+      {
+        "Current price": "290,600.39",
+        percent: "-2.26%",
+        positive: "",
+        negative: "-6410.85",
+        High: "290,650.38",
+        Low: "290,530.90",
+      },
+    ],
+  },
+  {
+    Commodity: "Gold",
+    Value: [
+      {
+        "Current price": "71,445",
+        percent: "-0.49%",
+        positive: "",
+        negative: "-346",
+        High: "71,622",
+        Low: "71,185",
+      },
+    ],
+  },
+  {
+    Commodity: "Natural Gas",
+    Value: [
+      {
+        "Current price": "254.8",
+        percent: "+0.75%",
+        positive: "+2.00",
+        negative: "",
+        High: "258.3",
+        Low: "252.2",
+      },
+    ],
   },
 ];
