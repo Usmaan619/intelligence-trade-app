@@ -57,7 +57,7 @@ const PortFolioPage = () => {
       <View style={{ flex: 1 }}>
         <Header onSearch={handleSearch} />
 
-        <View className="px-3 py-3">
+        <View className="px-3 pt-2 pb-3">
           <BlurView
             className="h-44  rounded-md"
             blurAmount={0.5}

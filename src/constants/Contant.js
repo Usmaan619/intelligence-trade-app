@@ -113,6 +113,9 @@ export const ICONS = {
   stockImg: require("../../assets/png/stock-ticker.png"),
 
   bgImg: require("../../assets/png/bg.png"),
+  home1Img: require("../../assets/png/homebaner1.png"),
+  home2Img: require("../../assets/png/home2.png"),
+  home3Img: require("../../assets/png/home3.png"),
 };
 
 export const constant = {
@@ -332,15 +335,32 @@ export const PIE_CHART = {
 };
 
 export const PIE_CHART_CONFIG = {
-  // backgroundGradientFrom: "#08130D",
-  // backgroundGradientFromOpacity: 0.4,
-  // backgroundGradientTo: "#1E2923",
+  // color: (opacity = 0) => `rgba(26, 255, 146, ${opacity})`,
 
-  backgroundGradientToOpacity: 0.5,
-  color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+  backgroundGradientFrom: "#e5e5e5",
+  backgroundGradientTo: "#e5e5e5",
+  backgroundGradientFromOpacity: 0.2,
+  backgroundGradientToOpacity: 0.2,
   strokeWidth: 2, // optional, default 3
   barPercentage: 0.5,
   useShadowColorFromDataset: false, // optional
+  decimalPlaces: 2, // optional, defaults to 2dp
+  color: (opacity = 1) => `rgba(98, 232, 255, ${opacity})`,
+  labelColor: (opacity = 1) => `rgba(98, 232, 255, ${opacity})`,
+  style: {
+    borderRadius: 16,
+  },
+  propsForDots: {
+    r: "6",
+    strokeWidth: "2",
+    stroke: "#ffa726",
+  },
+
+  // Define custom colors for each line
+  // color: (opacity = 1, index) => {
+  //   const colors = ["#00FF00", "#FF0000", "#00FF00"]; // green, red, green
+  //   return colors[index % colors.length];
+  // },
 };
 
 export const AMOUNTS_LIST = [

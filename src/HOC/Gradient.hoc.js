@@ -13,17 +13,12 @@ export const GradientHOC = (Component) => {
         <StatusBar
           networkActivityIndicatorVisible={true}
           translucent={true}
-          backgroundColor="#000"
           style="auto"
         />
-        <LinearGradient colors={gradientProps.colors} style={styles.gradient}>
-          <Component {...props} />
-        </LinearGradient>
-        {/* <Image
-          style={styles.gradient}
-          source={ICONS.bgImg}
-          resizeMode="contain"
-        /> */}
+        {/* <LinearGradient colors={gradientProps.colors} style={styles.gradient}>
+        </LinearGradient> */}
+        <Image style={styles.gradient} source={ICONS.bgImg} />
+        <Component {...props} />
       </>
     );
   };
@@ -35,6 +30,8 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     top: 0,
+    bottom: 0,
     height: "100%",
+    width: "100%",
   },
 });

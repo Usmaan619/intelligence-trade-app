@@ -98,4 +98,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default GradientHOC(Header);
+export default Header;

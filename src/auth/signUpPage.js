@@ -34,13 +34,14 @@ const SignUpPage = ({ navigation }) => {
   const onSubmit = (val) => {
     console.log("val: ", val);
 
-    navigation.navigate("DocumentVerif", { registerDetails: val });
+    // navigation.navigate("DocumentVerif", { registerDetails: val });
+    navigation.navigate("Dashboard");
   };
 
   return (
     <ScrollView>
       <Formik
-        validationSchema={signUpValidationSchema}
+        // validationSchema={signUpValidationSchema}
         initialValues={{
           email: "",
           password: "",
@@ -86,11 +87,11 @@ const SignUpPage = ({ navigation }) => {
                     />
                   </BlurView>
 
-                  {errors.email && touched.email && (
+                  {/* {errors.email && touched.email && (
                     <Text style={{ fontSize: 10, color: "red" }}>
                       {errors.email}
                     </Text>
-                  )}
+                  )} */}
 
                   <Text style={styles.signUpinputLabel2}>Mobile No.</Text>
                   <BlurView intensity={100} style={styles.input}>
@@ -104,11 +105,11 @@ const SignUpPage = ({ navigation }) => {
                     />
                   </BlurView>
 
-                  {errors.phoneNumber && touched.phoneNumber && (
+                  {/* {errors.phoneNumber && touched.phoneNumber && (
                     <Text style={{ fontSize: 10, color: "red" }}>
                       {errors.phoneNumber}
                     </Text>
-                  )}
+                  )} */}
 
                   <Text style={styles.signUpinputLabel2}>Password</Text>
                   <BlurView intensity={100} style={styles.input}>
@@ -130,11 +131,11 @@ const SignUpPage = ({ navigation }) => {
                       />
                     </TouchableOpacity>
                   </BlurView>
-                  {errors.password && touched.password && (
+                  {/* {errors.password && touched.password && (
                     <Text style={{ fontSize: 10, color: "red" }}>
                       {errors.password}
                     </Text>
-                  )}
+                  )} */}
 
                   <Text style={styles.signUpinputLabel2}>Confirm Password</Text>
                   <BlurView intensity={100} style={styles.input}>
@@ -156,11 +157,11 @@ const SignUpPage = ({ navigation }) => {
                       />
                     </TouchableOpacity>
                   </BlurView>
-                  {errors.Confpassword && touched.Confpassword && (
+                  {/* {errors.Confpassword && touched.Confpassword && (
                     <Text style={{ fontSize: 10, color: "red" }}>
                       {errors.Confpassword}
                     </Text>
-                  )}
+                  )} */}
                 </SafeAreaView>
               </View>
 

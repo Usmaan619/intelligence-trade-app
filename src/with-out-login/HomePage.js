@@ -644,6 +644,13 @@ const HomePage = ({ navigation }) => {
                 />
               )}
             </React.Fragment>
+
+            <TouchableOpacity
+              className="mt-24 mx-5 bg-slate-300 w-16 h-7 flex justify-center items-center rounded"
+              onPress={toggleModal}
+            >
+              <Text className="font-bold">Close</Text>
+            </TouchableOpacity>
           </ScrollView>
         </Modal>
       </View>

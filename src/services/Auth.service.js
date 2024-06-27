@@ -50,6 +50,19 @@ export const portfolioAPI = async () => {
     console.log("error: ", error);
   }
 };
+
+export const cronAPI = async () => {
+  try {
+    const response = await axios.get(
+      `https://be57-2401-4900-1ca2-cbf5-bccb-ad4c-7fa8-121f.ngrok-free.app/live`
+    );
+
+    return response?.data;
+  } catch (error) {
+    console.log("error: ", error);
+  }
+};
+
 export const checkToken = async (dispatch, token) => {
   await setData("token", token);
   dispatch(SetToken(token));

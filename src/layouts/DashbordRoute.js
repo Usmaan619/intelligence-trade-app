@@ -32,4 +32,4 @@ const DashboardLayout = () => {
   );
 };
 
-export default GradientHOC(DashboardLayout);
+export default DashboardLayout;

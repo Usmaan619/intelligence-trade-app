@@ -80,6 +80,15 @@ export default function TabNavigation() {
         <Tab.Screen
           name="Mutual Fund"
           component={DocumentVerifPage}
+          /**
+           * disabled tab
+           * */
+          listeners={{
+            tabPress: (e) => {
+              // Prevent default action
+              e.preventDefault();
+            },
+          }}
           options={{
             tabBarIcon: ({ focused }) => {
               return (
@@ -146,6 +155,15 @@ export default function TabNavigation() {
         <Tab.Screen
           name="US stocks"
           component={SignInPage}
+          /**
+           * disabled tab
+           * */
+          listeners={{
+            tabPress: (e) => {
+              // Prevent default action
+              e.preventDefault();
+            },
+          }}
           options={{
             tabBarIcon: ({ focused }) => {
               return (

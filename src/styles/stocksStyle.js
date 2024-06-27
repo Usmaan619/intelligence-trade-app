@@ -3,6 +3,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import { MAINCOLORS } from "../Common/Color";
 const { width } = Dimensions.get("window");
 
 export const stocksStyle = {
@@ -382,5 +383,68 @@ export const stocksStyle = {
     height: 28,
     width: 28,
     resizeMode: "contain",
+  },
+
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: "#f5f5f5",
+  },
+  touchable: {
+    overflow: "hidden",
+    marginLeft: 10,
+  },
+  blurView: {
+    height: 120,
+    width: 160,
+    borderRadius: 12,
+    overflow: "hidden",
+    alignItems: "center",
+    justifyContent: "center",
+    marginVertical: 20,
+    backgroundColor: MAINCOLORS.primary,
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+    alignItems: "baseline",
+    marginBottom: "auto",
+    marginTop: "10%",
+  },
+  row: {
+    flexDirection: "row",
+    marginHorizontal: 7,
+  },
+  icon: {
+    height: 20,
+    width: 20,
+  },
+  positiveText: {
+    fontSize: 10,
+    color: "green",
+  },
+  negativeText: {
+    fontSize: 10,
+    color: "red",
+  },
+  centerContent: {
+    justifyContent: "center",
+    alignItems: "center",
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
+  currentPrice: {
+    fontSize: 11,
+    fontWeight: "500",
+    color: "black",
+  },
+  indexName: {
+    fontSize: 13,
+    fontWeight: "500",
+    color: "black",
   },
 };

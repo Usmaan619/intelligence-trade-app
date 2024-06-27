@@ -66,8 +66,8 @@ const MainRoutes = ({ token, isNetConnected }) => {
               animation: "slide_from_right",
             }}
           >
-            <Stack.Screen name="Dashboard" component={DashbordRoute} />
             <Stack.Screen name="home" component={HomePage} />
+            <Stack.Screen name="Dashboard" component={DashbordRoute} />
             <Stack.Screen name="signIn" component={SignInPage} />
             <Stack.Screen name="DocumentVerif" component={DocumentVerifPage} />
             <Stack.Screen name="signUp" component={signUpPage} />
@@ -78,9 +78,9 @@ const MainRoutes = ({ token, isNetConnected }) => {
     </React.Fragment>
   );
 };
-// grey 737373 
+// grey 737373
 // 00ccef
-// 
+//
 const mapStateToProps = (state) => {
   console.log("state: ", state);
   return {
