@@ -33,7 +33,7 @@ const Header = ({ onSearch }) => {
         </View>
 
         <TouchableOpacity style={styles.walletContainer} onPress={toggleModal}>
-          <Text style={styles.profileTitle}>US</Text>
+          <Text style={styles.profileTitle}>FA</Text>
         </TouchableOpacity>
       </View>
 

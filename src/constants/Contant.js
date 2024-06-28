@@ -330,7 +330,7 @@ export const OUR_FEATURES = [
 ];
 
 export const PIE_CHART = {
-  labels: ["Swim", "Bike", "Run"], // optional
+  // labels: ["Swim", "Bike", "Run"], // optional
   data: [0.4, 0.6, 0.8],
 };
 
@@ -365,38 +365,38 @@ export const PIE_CHART_CONFIG = {
 
 export const AMOUNTS_LIST = [
   {
-    investmentAmount: "$49.343",
-    currentValue: "$54.999",
+    investmentAmount: "₹49.343",
+    currentValue: "₹54.999",
     date: Date.now(),
   },
 
   {
-    investmentAmount: "$49.343",
-    currentValue: "$54.999",
+    investmentAmount: "₹30.343",
+    currentValue: "₹4.999",
     date: Date.now(),
   },
 
   {
-    investmentAmount: "$49.343",
-    currentValue: "$54.999",
+    investmentAmount: "₹9.343",
+    currentValue: "₹7.999",
     date: Date.now(),
   },
 
   {
-    investmentAmount: "$49.343",
-    currentValue: "$54.999",
+    investmentAmount: "₹7.343",
+    currentValue: "₹9.999",
     date: Date.now(),
   },
 
   {
-    investmentAmount: "$49.343",
-    currentValue: "$54.999",
+    investmentAmount: "₹69.343",
+    currentValue: "₹94.999",
     date: Date.now(),
   },
 
   {
-    investmentAmount: "$49.343",
-    currentValue: "$54.999",
+    investmentAmount: "₹99.343",
+    currentValue: "₹74.999",
     date: Date.now(),
   },
 ];

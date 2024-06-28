@@ -15,9 +15,10 @@ import { ICONS } from "../constants/Contant";
 import B from "../components/B.component";
 import { authStyles } from "../styles/authStyle";
 import { GradientHOC } from "../HOC/Gradient.hoc";
-import { loginValidationSchema } from "../utils/helper";
+import { loginSvc, loginValidationSchema } from "../utils/helper";
 import CommonButton from "../components/CommonButton";
 import { loginAPI } from "../services/Auth.service";
+import { userDetails } from "../users/userDetails";
 
 const SignIn = ({ navigation }) => {
   const [isShowPassword, setIsShowPassword] = useState(true);
@@ -26,18 +27,19 @@ const SignIn = ({ navigation }) => {
     setIsShowPassword(!isShowPassword);
   };
 
-
-
   const onSubmit = async (val) => {
     try {
       console.log("val: ", val);
 
-      const res = await loginAPI(val)
-      console.log('res:loginAPI ', res?.data);
+      // const res = await loginAPI(val)
+      // console.log('res:loginAPI ', res?.data);
 
-      if (res?.msg) navigation.navigate("home");
+      // if (res?.msg) navigation.navigate("home");
+
+      const res = loginSvc(userDetails, val);
+      console.log('res: ', res);
     } catch (error) {
-      console.log('error:loginAPI ', error);
+      console.log("error:loginAPI ", error);
     }
   };
 
@@ -64,12 +66,17 @@ const SignIn = ({ navigation }) => {
           formikFn = formikProps;
           return (
             <View style={styles.signUpcontainer}>
-
-              <View className='flex justify-center mt-2'>
-                <View className='flex-row justify-center items-center'>
-                  <Image source={ICONS?.intelligenceMainWhiteImg} resizeMode="cover" className='h-[90px] w-[170px] overflow-hidden' />
+              <View className="flex justify-center mt-2">
+                <View className="flex-row justify-center items-center">
+                  <Image
+                    source={ICONS?.intelligenceMainWhiteImg}
+                    resizeMode="cover"
+                    className="h-[90px] w-[170px] overflow-hidden"
+                  />
                 </View>
-                <Text className="text-center my-5 text-lg font-semibold text-white">Welcome Back, Please Sign In To your Account. </Text>
+                <Text className="text-center my-5 text-lg font-semibold text-white">
+                  Welcome Back, Please Sign In To your Account.{" "}
+                </Text>
                 <View style={styles.signUpInputMainContainer}>
                   <SafeAreaView style={styles.signUpInputSubContainer}>
                     <Text style={styles.inputLabel}>Email</Text>

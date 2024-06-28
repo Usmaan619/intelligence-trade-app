@@ -14,6 +14,8 @@ export const GradientHOC = (Component) => {
           networkActivityIndicatorVisible={true}
           translucent={true}
           style="auto"
+          backgroundColor="#000"
+          barStyle="light-content"
         />
         {/* <LinearGradient colors={gradientProps.colors} style={styles.gradient}>
         </LinearGradient> */}

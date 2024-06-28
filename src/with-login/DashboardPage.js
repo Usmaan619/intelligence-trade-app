@@ -138,7 +138,9 @@ const DashboardPage = ({ navigation }) => {
 
       {/* main view */}
       <ScrollView style={{ flexGrow: 1, overflow: "scroll" }}>
-        <Header onSearch={handleSearch} />
+        <View className="mt-4">
+          <Header onSearch={handleSearch} />
+        </View>
 
         <View className="px-3 pt-2 pb-3">
           <ScrollView
@@ -290,100 +292,102 @@ const DashboardPage = ({ navigation }) => {
           </View>
           {/* portfolio */}
 
-          <View className="px-3 py-4">
-            <View className="flex-row justify-between items-center ">
-              <Text className="font-bold text-lg py-3 text-white">
-                Portfolio
-              </Text>
-            </View>
+          <View className="flex-row justify-center items-center  py-4">
+            <View>
+              <View className="flex-row justify-between items-center ">
+                <Text className="font-bold text-lg py-3 text-white">
+                  Portfolio
+                </Text>
+              </View>
 
-            <View className=" flex-row  gap-2 items-center">
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate("Portfolio");
-                }}
-              >
+              <View className=" flex-row  gap-2 items-center">
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate("Portfolio");
+                  }}
+                >
+                  <BlurView
+                    className="flex justify-center items-center my-auto h-36 w-40  rounded-lg"
+                    blurAmount={0.5}
+                    style={{ overflow: "hidden" }}
+                  >
+                    {/* <LinearGradient
+                colors={["#006548", "#079b07"]}
+                end={{ x: 0.1, y: 0.9 }}
+                className="flex justify-center items-center my-auto h-36 w-40   rounded-lg"
+              > */}
+                    <Animatable.Text
+                      animation="pulse"
+                      easing="ease-out"
+                      iterationCount="infinite"
+                      className="mb-3 border rounded-xl border-white p-2"
+                    >
+                      <MaterialIcons name="groups-2" size={30} color="white" />
+                    </Animatable.Text>
+                    <Text className="font-bold text-white text-md">
+                      Highest Rated Funds
+                    </Text>
+                    {/* </LinearGradient> */}
+                  </BlurView>
+                </TouchableOpacity>
                 <BlurView
-                  className="flex justify-center items-center my-auto h-36 w-44  rounded-lg"
+                  className="flex justify-center items-center my-auto h-36 w-40  rounded-lg"
                   blurAmount={0.5}
                   style={{ overflow: "hidden" }}
                 >
-                  {/* <LinearGradient
-                colors={["#006548", "#079b07"]}
-                end={{ x: 0.1, y: 0.9 }}
-                className="flex justify-center items-center my-auto h-36 w-44   rounded-lg"
-              > */}
                   <Animatable.Text
                     animation="pulse"
                     easing="ease-out"
                     iterationCount="infinite"
-                    className="mb-3 border rounded-xl border-white p-2"
+                    className="mb-4 border rounded-xl border-white p-2"
                   >
-                    <MaterialIcons name="groups-2" size={30} color="white" />
+                    <FontAwesome6 name="sack-dollar" size={30} color="white" />
                   </Animatable.Text>
                   <Text className="font-bold text-white text-md">
                     Highest Rated Funds
                   </Text>
-                  {/* </LinearGradient> */}
                 </BlurView>
-              </TouchableOpacity>
-              <BlurView
-                className="flex justify-center items-center my-auto h-36 w-44  rounded-lg"
-                blurAmount={0.5}
-                style={{ overflow: "hidden" }}
-              >
-                <Animatable.Text
-                  animation="pulse"
-                  easing="ease-out"
-                  iterationCount="infinite"
-                  className="mb-4 border rounded-xl border-white p-2"
+              </View>
+              <View className=" flex-row   gap-2 items-center mt-1">
+                <BlurView
+                  className="flex justify-center items-center my-auto h-36 w-40  rounded-lg"
+                  blurAmount={0.5}
+                  style={{ overflow: "hidden" }}
                 >
-                  <FontAwesome6 name="sack-dollar" size={30} color="white" />
-                </Animatable.Text>
-                <Text className="font-bold text-white text-md">
-                  Highest Rated Funds
-                </Text>
-              </BlurView>
-            </View>
-            <View className=" flex-row   gap-2 items-center mt-1">
-              <BlurView
-                className="flex justify-center items-center my-auto h-36 w-44  rounded-lg"
-                blurAmount={0.5}
-                style={{ overflow: "hidden" }}
-              >
-                <Animatable.Text
-                  animation="pulse"
-                  easing="ease-out"
-                  iterationCount="infinite"
-                  className="mb-4 border rounded-xl border-white p-2"
+                  <Animatable.Text
+                    animation="pulse"
+                    easing="ease-out"
+                    iterationCount="infinite"
+                    className="mb-4 border rounded-xl border-white p-2"
+                  >
+                    <MaterialCommunityIcons
+                      name="credit-card-refund"
+                      size={30}
+                      color="white"
+                    />
+                  </Animatable.Text>
+                  <Text className="font-bold text-white text-md">
+                    Highest Rated Funds
+                  </Text>
+                </BlurView>
+                <BlurView
+                  className="flex justify-center items-center my-auto h-36 w-40  rounded-lg"
+                  blurAmount={0.5}
+                  style={{ overflow: "hidden" }}
                 >
-                  <MaterialCommunityIcons
-                    name="credit-card-refund"
-                    size={30}
-                    color="white"
-                  />
-                </Animatable.Text>
-                <Text className="font-bold text-white text-md">
-                  Highest Rated Funds
-                </Text>
-              </BlurView>
-              <BlurView
-                className="flex justify-center items-center my-auto h-36 w-44  rounded-lg"
-                blurAmount={0.5}
-                style={{ overflow: "hidden" }}
-              >
-                <Animatable.Text
-                  animation="pulse"
-                  easing="ease-out"
-                  iterationCount="infinite"
-                  className="mb-4 border rounded-xl border-white p-2"
-                >
-                  <MaterialIcons name="recommend" size={30} color="white" />
-                </Animatable.Text>
-                <Text className="font-bold text-white text-md">
-                  MO Recommended
-                </Text>
-              </BlurView>
+                  <Animatable.Text
+                    animation="pulse"
+                    easing="ease-out"
+                    iterationCount="infinite"
+                    className="mb-4 border rounded-xl border-white p-2"
+                  >
+                    <MaterialIcons name="recommend" size={30} color="white" />
+                  </Animatable.Text>
+                  <Text className="font-bold text-white text-md">
+                    MO Recommended
+                  </Text>
+                </BlurView>
+              </View>
             </View>
           </View>
           {/* portfolio end */}

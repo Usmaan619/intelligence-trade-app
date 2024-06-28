@@ -13,19 +13,19 @@ const PortFolioPage = () => {
   const EQUITY_DATA = [
     {
       name: "Equity",
-      value: 100.45,
+      value: 30.45,
       color: "#1a73e8",
     },
 
     {
-      name: "Us Stocks",
-      value: 100.23,
+      name: "Sensex",
+      value: 20.23,
       color: "#ff0000",
     },
 
     {
       name: "Equity",
-      value: 103.23,
+      value: 33.23,
       color: "#ffd400",
     },
   ];
@@ -55,7 +55,9 @@ const PortFolioPage = () => {
   return (
     <ScrollView>
       <View style={{ flex: 1 }}>
-        <Header onSearch={handleSearch} />
+        <View className="mt-4">
+          <Header onSearch={handleSearch} />
+        </View>
 
         <View className="px-3 pt-2 pb-3">
           <BlurView
@@ -87,7 +89,9 @@ const PortFolioPage = () => {
                 <Text className="font-normal text-md text-white">
                   Overall Portfolio
                 </Text>
-                <Text className="font-bold text-lg text-white">$ 189.40</Text>
+                <Text className="font-bold text-lg text-white">
+                  ₹ 19,40,000
+                </Text>
               </View>
 
               <View className="flex-row justify-between pt-2 items-center">
@@ -96,7 +100,7 @@ const PortFolioPage = () => {
                     Total invest
                   </Text>
                   <Text className="font-bold text-base text-white">
-                    $ 190.80
+                    ₹ 29,00,000
                   </Text>
                 </View>
 
@@ -143,7 +147,7 @@ const PortFolioPage = () => {
 
           <BlurView
             blurAmount={0.5}
-            className="h-48 rounded-md my-2"
+            className="h-36 rounded-md my-2"
             style={{ overflow: "hidden" }}
           >
             <View className="p-3">
@@ -158,7 +162,7 @@ const PortFolioPage = () => {
                     <View className="h-10 w-10 bg-blue-600 rounded-3xl"></View>
                   </Animatable.View>
                   <Text className="text-white text-base font-normal">
-                    Equity(100.00%)
+                    Equity(30.45%)
                   </Text>
                 </View>
 
@@ -183,42 +187,42 @@ const PortFolioPage = () => {
                     <Text className="font-normal text-md text-white">
                       Invested Amt:
                     </Text>
-
+                    {/* 
                     <Text className="font-normal text-md text-white">
                       1 Day P&L
                     </Text>
 
                     <Text className="font-normal text-md text-white">
                       Overall P&L
-                    </Text>
+                    </Text> */}
                   </View>
                 </View>
 
                 <View className="grid gap-2 items-end">
                   <Text className="font-semibold text-md text-white text-right">
-                    $ 103.70
+                    ₹ 13,70,000
                   </Text>
                   <View className="grid gap-2 items-end">
                     <Text className="font-semibold text-md text-white text-right">
-                      $ 133.70
+                      ₹ 3,00,000
                     </Text>
 
-                    <Text className="font-semibold text-md text-white text-right">
+                    {/* <Text className="font-semibold text-md text-white text-right">
                       + 10.70(+5.91%)
                     </Text>
                     <Text className="font-semibold text-md text-white text-right">
                       + 6.70(+5.91%)
-                    </Text>
+                    </Text> */}
                   </View>
                 </View>
               </View>
             </View>
           </BlurView>
-          {/* us stocks */}
+          {/* Sensex */}
 
           <BlurView
             blurAmount={0.5}
-            className="h-48  rounded-md mt-2 mb-6"
+            className="h-36  rounded-md mt-2 mb-6"
             style={{ overflow: "hidden" }}
           >
             <View className="p-3">
@@ -233,7 +237,7 @@ const PortFolioPage = () => {
                     <View className="h-10 w-10 bg-red-600 rounded-3xl"></View>
                   </Animatable.View>
                   <Text className="text-white text-base font-normal">
-                    Us Stocks(100.00%)
+                    Sensex(20.23%)
                   </Text>
                 </View>
 
@@ -259,31 +263,31 @@ const PortFolioPage = () => {
                       Invested Amt:
                     </Text>
 
-                    <Text className="font-normal text-md text-white">
+                    {/* <Text className="font-normal text-md text-white">
                       1 Day P&L
                     </Text>
 
                     <Text className="font-normal text-md text-white">
                       Overall P&L
-                    </Text>
+                    </Text> */}
                   </View>
                 </View>
 
                 <View className="grid gap-2 items-end">
                   <Text className="font-semibold text-md text-white text-right">
-                    $ 103.70
+                    ₹ 4.70,000
                   </Text>
                   <View className="grid gap-2 items-end">
                     <Text className="font-semibold text-md text-white text-right">
-                      $ 133.70
+                      ₹ 3,20,000
                     </Text>
 
-                    <Text className="font-semibold text-md text-white text-right">
+                    {/* <Text className="font-semibold text-md text-white text-right">
                       + 10.70(+5.91%)
                     </Text>
                     <Text className="font-semibold text-md text-white text-right">
                       + 6.70(+5.91%)
-                    </Text>
+                    </Text> */}
                   </View>
                 </View>
               </View>
@@ -324,14 +328,14 @@ const PortFolioPage = () => {
 
                 <View className="grid gap-2 items-end">
                   <Text className="font-semibold text-base text-white text-right">
-                    $ 133.70
+                    ₹ 23,70,000
                   </Text>
 
                   <Text className="font-semibold text-base text-white text-right">
-                    $ 10.70
+                    ₹ 10,70,000
                   </Text>
                   <Text className="font-semibold text-base text-white text-right">
-                    $ 6.70
+                    ₹ 6,70,000
                   </Text>
                 </View>
               </View>

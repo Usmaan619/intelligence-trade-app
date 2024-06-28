@@ -78,7 +78,7 @@ const HomePage = ({ navigation }) => {
       cornerLabelText: "3",
       // upValue: "23.0%",
       downValue: "0.89%",
-      count: "$374 103",
+      count: "₹374 103",
       downImg: ICONS.downArrowImgImg,
       // upImg: ICONS.upArrowImg,
     },
@@ -88,7 +88,7 @@ const HomePage = ({ navigation }) => {
       cornerLabelText: "9",
       upValue: "23.0%",
       // downValue: "0.89%",
-      count: "$100 812",
+      count: "₹100 812",
       // downImg: ICONS.downArrowImgImg,
       upImg: ICONS.upArrowImg,
     },
@@ -367,18 +367,18 @@ const HomePage = ({ navigation }) => {
                     marginLeft: 10,
                   }}
                 >
-                  Tesla
+                  MD Shoeb Khan
                 </Text>
               </View>
 
               <View>
                 <Text style={{ fontSize: 12, fontWeight: "700" }}>
-                  $29,850.15{" "}
+                  ₹10,00,000{" "}
                 </Text>
                 <Text
                   style={{ fontSize: 10, color: "#38B000", textAlign: "right" }}
                 >
-                  +3.04%{" "}
+                  +23.04%{" "}
                 </Text>
               </View>
             </View>
@@ -404,12 +404,14 @@ const HomePage = ({ navigation }) => {
                     marginLeft: 10,
                   }}
                 >
-                  Moto GP
+                  Zoeb khan
                 </Text>
               </View>
 
               <View>
-                <Text style={{ fontSize: 12, fontWeight: "700" }}>$17.04 </Text>
+                <Text style={{ fontSize: 12, fontWeight: "700" }}>
+                  ₹7,65,000{" "}
+                </Text>
                 <Text
                   style={{ fontSize: 10, color: "#F52419", textAlign: "right" }}
                 >
@@ -439,13 +441,13 @@ const HomePage = ({ navigation }) => {
                     marginLeft: 10,
                   }}
                 >
-                  Pepsico
+                  Faizan Ali
                 </Text>
               </View>
 
               <View>
                 <Text style={{ fontSize: 12, fontWeight: "700" }}>
-                  $107.04{" "}
+                  ₹11,04,000{" "}
                 </Text>
                 <Text
                   style={{ fontSize: 10, color: "#38B000", textAlign: "right" }}
@@ -476,16 +478,55 @@ const HomePage = ({ navigation }) => {
                     marginLeft: 10,
                   }}
                 >
-                  Hathway
+                  Azhar khan
                 </Text>
               </View>
 
               <View>
-                <Text style={{ fontSize: 12, fontWeight: "700" }}>$27.04 </Text>
+                <Text style={{ fontSize: 12, fontWeight: "700" }}>
+                  ₹3,04,000{" "}
+                </Text>
                 <Text
                   style={{ fontSize: 10, color: "#38B000", textAlign: "right" }}
                 >
                   +1.67%{" "}
+                </Text>
+              </View>
+            </View>
+
+            <View
+              style={{
+                flexDirection: "row",
+                padding: 10,
+                justifyContent: "space-between",
+              }}
+            >
+              <View style={{ flexDirection: "row" }}>
+                <Image
+                  style={{ height: 35, width: 35, borderRadius: 30 }}
+                  source={ICONS.pepsicoImg}
+                  fadeDuration={0}
+                />
+                <Text
+                  style={{
+                    fontSize: 12,
+                    fontWeight: "700",
+                    padding: 6,
+                    marginLeft: 10,
+                  }}
+                >
+                  Razik Khan
+                </Text>
+              </View>
+
+              <View>
+                <Text style={{ fontSize: 12, fontWeight: "700" }}>
+                  ₹11,04,000{" "}
+                </Text>
+                <Text
+                  style={{ fontSize: 10, color: "#38B000", textAlign: "right" }}
+                >
+                  +0.67%{" "}
                 </Text>
               </View>
             </View>
